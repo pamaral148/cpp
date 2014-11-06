@@ -6,26 +6,37 @@
 
 #pragma once
 #include <array>
+#include <string>
 
 class TurtleGraphics
 {
 private:
-	const static size_t NROWS = 22;  // number of rows in floor
+    // error message to use in switch statements
+    const static std::string ERROR_MSG;
+    const static size_t NROWS = 22;  // number of rows in floor
 	const static size_t NCOLS = 70;  // number of colums in floor
 
 	const static int STARTING_ROW = 0;    // row that turtle will start in
 	const static int STARTING_COL = 0;    // column that turtle will start in
 
-	const static int STARTING_DIRECTION = 6; // direction that turtle 
-	                      // will be facing at the start
-                          // 6 as in 6 o'clock on an analog clock
-                          // The other 3 possible values are 3,9 and 12 o'clock
-
-	const static bool STARTING_PEN_POSITION = false; // Pen will be up when 
+    // direction constants
+    const static unsigned short UP = 12;
+    const static unsigned short RIGHT = 3;
+    const static unsigned short DOWN = 6;
+    const static unsigned short LEFT = 9;
+    
+    const static int STARTING_DIRECTION = DOWN; // direction that turtle
+    // will be facing at the start
+    // 6 as in 6 o'clock on an analog clock
+    // The other 3 possible values are 3,9 and 12 o'clock
+    
+    const static bool STARTING_PEN_POSITION = false; // Pen will be up when
 	                            // program starts
                                 // false means pen up, true means pen down
 
-	const static char EMPTY = ' '; // printed when pen up on col
+	const static bool PEN_UP = false; // pen is up
+	const static bool PEN_DOWN = true; // pen is down
+    const static char EMPTY = ' '; // printed when pen up on col
     const static char FULL = '*'; // printed when pen down on col
     const static char NEWLINE = '\n'; // used for output formatting
     
