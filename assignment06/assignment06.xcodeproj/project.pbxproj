@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC2C9C7A1A0BF0D10074D859 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2C9C791A0BF0D10074D859 /* main.cpp */; };
+		EC2C9C841A0C05DE0074D859 /* TurtleGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2C9C831A0C05DE0074D859 /* TurtleGraphics.cpp */; };
+		EC2C9C871A0C08610074D859 /* Assign6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC2C9C851A0C08610074D859 /* Assign6.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,9 @@
 
 /* Begin PBXFileReference section */
 		EC2C9C761A0BF0D10074D859 /* assignment06 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = assignment06; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC2C9C791A0BF0D10074D859 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		EC2C9C831A0C05DE0074D859 /* TurtleGraphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TurtleGraphics.cpp; sourceTree = SOURCE_ROOT; };
+		EC2C9C851A0C08610074D859 /* Assign6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Assign6.cpp; sourceTree = SOURCE_ROOT; };
+		EC2C9C861A0C08610074D859 /* TurtleGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurtleGraphics.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +60,9 @@
 		EC2C9C781A0BF0D10074D859 /* assignment06 */ = {
 			isa = PBXGroup;
 			children = (
-				EC2C9C791A0BF0D10074D859 /* main.cpp */,
+				EC2C9C851A0C08610074D859 /* Assign6.cpp */,
+				EC2C9C861A0C08610074D859 /* TurtleGraphics.h */,
+				EC2C9C831A0C05DE0074D859 /* TurtleGraphics.cpp */,
 			);
 			path = assignment06;
 			sourceTree = "<group>";
@@ -118,7 +123,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC2C9C7A1A0BF0D10074D859 /* main.cpp in Sources */,
+				EC2C9C841A0C05DE0074D859 /* TurtleGraphics.cpp in Sources */,
+				EC2C9C871A0C08610074D859 /* Assign6.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
