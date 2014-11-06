@@ -46,6 +46,6 @@ int main()
 
    turtleOne.processTurtleMoves(cmds); // have turtle process commands
 
-   system("pause");
+   //system("pause");
    return 0;  // we are finished, let's go home
 }

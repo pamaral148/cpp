@@ -25,7 +25,11 @@ private:
 	                            // program starts
                                 // false means pen up, true means pen down
 
-	void displayFloor() const;  // will display floor on the screen
+	const static char EMPTY = ' '; // printed when pen up on col
+    const static char FULL = '*'; // printed when pen down on col
+    const static char NEWLINE = '\n'; // used for output formatting
+    
+    void displayFloor() const;  // will display floor on the screen
 
 	// member data
     std::array <std::array <bool, NCOLS>, NROWS> m_Floor;   // floor on which turtle will draw
