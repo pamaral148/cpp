@@ -37,7 +37,8 @@ void TurtleGraphics::processTurtleMoves( const array< int, ARRAY_SIZE> commands 
 {
     int index = 0;
     Cmds nextCommand = static_cast<Cmds>(commands[index]);
-    while (nextCommand != Cmds::END_OF_DATA) {
+    while (nextCommand != Cmds::END_OF_DATA && index < ARRAY_SIZE) {
+        short numberOfSteps = 0;
         switch (nextCommand) {
             case Cmds::PEN_UP:
                 penPosition = PEN_UP;
@@ -62,7 +63,7 @@ void TurtleGraphics::processTurtleMoves( const array< int, ARRAY_SIZE> commands 
                         currentDirection = UP;
                         break;
                     default:
-                        cerr << ERROR_MSG;
+                        cerr << ERROR_MSG << " TURNING RIGHT";
                         break;
                 }
                 nextCommand = static_cast<Cmds>(commands[++index]);
@@ -82,14 +83,61 @@ void TurtleGraphics::processTurtleMoves( const array< int, ARRAY_SIZE> commands 
                         currentDirection = DOWN;
                         break;
                     default:
-                        cerr << ERROR_MSG;
+                        cerr << ERROR_MSG << " TURNING LEFT";
                         break;
                 }
                 nextCommand = static_cast<Cmds>(commands[++index]);
                 break;
             case Cmds::MOVE:
-                // todo: implement movement and drawing
-                cout << "Moving " << commands[index + 1] << " spaces\n";
+                numberOfSteps = commands[index + 1];
+                switch (currentDirection) {
+                    case UP:
+                        if((currentRow - numberOfSteps) < 0) {
+                            numberOfSteps = currentRow;
+                        }
+                        if (penPosition == PEN_DOWN) {
+                            for (int i = currentRow, j = 0; j < numberOfSteps; --i, ++j) {
+                                m_Floor[i][currentCol] = PEN_DOWN;
+                            }
+                        }
+                        currentRow -= numberOfSteps;
+                        break;
+                    case RIGHT:
+                        if ((currentCol + numberOfSteps) >= NCOLS) {
+                            numberOfSteps = (NCOLS - currentCol) - ARRAY_INDEX_OFFSET;
+                        }
+                        if (penPosition == PEN_DOWN) {
+                            for (int i = currentCol, j  = 0; j < numberOfSteps; ++i, ++j) {
+                               m_Floor[currentRow][i] = PEN_DOWN;
+                            }
+                        }
+                        currentCol += numberOfSteps;
+                        break;
+                    case DOWN:
+                        if ((currentRow + numberOfSteps) >= NROWS) {
+                            numberOfSteps = (NROWS - currentRow) - ARRAY_INDEX_OFFSET;
+                        }
+                        if (penPosition == PEN_DOWN) {
+                            for (int i = currentRow, j = 0; j < numberOfSteps; ++i, ++j) {
+                                m_Floor[i][currentCol] = PEN_DOWN;
+                            }
+                        }
+                        currentRow += numberOfSteps;
+                        break;
+                    case LEFT:
+                        if ((currentCol - numberOfSteps) < 0) {
+                            numberOfSteps = currentCol;
+                        }
+                        if (penPosition == PEN_DOWN) {
+                            for (int i = currentCol, j = 0; j < numberOfSteps; --i, ++j) {
+                               m_Floor[currentRow][i] = PEN_DOWN;
+                            }
+                        }
+                        currentCol -= numberOfSteps;
+                        break;
+                    default:
+                        break;
+                }
                 index += 2;
                 nextCommand = static_cast<Cmds>(commands[index]);
                 break;
@@ -98,7 +146,8 @@ void TurtleGraphics::processTurtleMoves( const array< int, ARRAY_SIZE> commands 
                 nextCommand = static_cast<Cmds>(commands[++index]);
                 break;
             default:
-                cerr << ERROR_MSG;
+                cerr << ERROR_MSG << " PROCESSING CMD:" << static_cast<unsigned int>(nextCommand) << "\n";
+                nextCommand = static_cast<Cmds>(commands[++index]);
                 break;
         }
     }
@@ -109,7 +158,7 @@ void TurtleGraphics::displayFloor() const
 {
     for(auto row : m_Floor) {
         for(auto col : row) {
-            if(col == true) {
+            if(col == PEN_DOWN) {
                 cout << FULL;
             } else {
                 cout << EMPTY;

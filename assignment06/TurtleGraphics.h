@@ -18,7 +18,8 @@ private:
 
 	const static int STARTING_ROW = 0;    // row that turtle will start in
 	const static int STARTING_COL = 0;    // column that turtle will start in
-
+    const static int ARRAY_INDEX_OFFSET = 1; // value used to shift to 0-index
+    
     // direction constants
     const static unsigned short UP = 12;
     const static unsigned short RIGHT = 3;
@@ -44,8 +45,8 @@ private:
 
 	// member data
     std::array <std::array <bool, NCOLS>, NROWS> m_Floor;   // floor on which turtle will draw
-    unsigned int currentRow; // the current row position of the turtle
-    unsigned int currentCol; // the current col position of the turtle
+    int currentRow; // the current row position of the turtle
+    int currentCol; // the current col position of the turtle
     bool penPosition; // whether the pen is down or not
     unsigned short currentDirection; // direction that the turtle is currently facing
 

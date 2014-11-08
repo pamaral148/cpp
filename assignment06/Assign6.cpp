@@ -38,9 +38,10 @@ int main()
 				 // Test program bound checking and add border in the process
 
 				 //   Uncomment next line when ready to test bound checking
-				 //1,5,100,2,4,5,100,4,5,100,4,5,100,4,5,100,4,5,100,
+				 1,5,100,2,4,5,100,4,5,100,4,5,100,4,5,100,4,5,100,
 
 				 1,6,9}; // finish off
+
 
    TurtleGraphics turtleOne;  // create a TurtleGraphics object
 
