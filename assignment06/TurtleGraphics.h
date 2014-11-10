@@ -11,16 +11,17 @@
 class TurtleGraphics
 {
 private:
-    // error message to use in switch statements
-    const static std::string ERROR_MSG;
+    
+    const static std::string ERROR_MSG; // error message to use in switch statements
     const static size_t NROWS = 22;  // number of rows in floor
 	const static size_t NCOLS = 70;  // number of colums in floor
 
 	const static int STARTING_ROW = 0;    // row that turtle will start in
 	const static int STARTING_COL = 0;    // column that turtle will start in
-    const static int ARRAY_INDEX_OFFSET = 1; // value used to shift to 0-index
+    const static int ARRAY_INDEX_OFFSET = 1; // value used to shift to 0-index of
+    // array when bounds testing
     
-    // direction constants
+    // direction constants using clock-face as notation
     const static unsigned short UP = 12;
     const static unsigned short RIGHT = 3;
     const static unsigned short DOWN = 6;

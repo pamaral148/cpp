@@ -3,7 +3,10 @@
 //  assignment06
 //
 //  Created by Paulo Amaral on 2014-11-06.
-//  Copyright (c) 2014 a00887758. All rights reserved.
+//  Implementation of TurtleGraphcs class for comp2617 assignment 06
+//
+//  Accepts an array of commands and draws the graphic described by the
+//      movements contained in the array
 //
 
 #include <iostream>
@@ -138,7 +141,8 @@ void TurtleGraphics::processTurtleMoves( const array< int, ARRAY_SIZE> commands 
                     default:
                         break;
                 }
-                index += 2;
+                index += 2; // jump two array positions to skip number of steps
+                // and point to next command
                 nextCommand = static_cast<Cmds>(commands[index]);
                 break;
             case Cmds::DISPLAY:
@@ -153,7 +157,7 @@ void TurtleGraphics::processTurtleMoves( const array< int, ARRAY_SIZE> commands 
     }
 }
 
-// displays floor on the screen
+// displays canvas floor on the screen
 void TurtleGraphics::displayFloor() const
 {
     for(auto row : m_Floor) {
