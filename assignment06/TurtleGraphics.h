@@ -4,6 +4,9 @@
 // Author: Bob Langelaan 
 // Date: Nov 7, 2013
 
+// Modified By: Paulo Amaral
+// Date: Nov 6, 2014
+
 #pragma once
 #include <array>
 #include <string>
