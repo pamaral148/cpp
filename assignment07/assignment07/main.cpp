@@ -45,10 +45,9 @@ int main() {
     int harePosition = track.at(START_POSITION - OFFSET);
     
     while (!isWinner(tortoisePosition) && !isWinner(harePosition)) {
-        moveTortoise(tortoisePosition, randomInt(engine), track);
-        moveHare(harePosition, randomInt(engine), track);
-        std::cout << "Tortoise at: " << tortoisePosition << std::endl;
-        std::cout << "Hare at: " << harePosition << std::endl;
+        int random = randomInt(engine);
+        moveTortoise(tortoisePosition, random, track);
+        moveHare(harePosition, random, track);
     }
     
     if(isWinner(tortoisePosition)) {
@@ -98,7 +97,7 @@ void moveTortoise(int &currentPosition, const int &randomInt, const std::array<i
             break;
         case 6:
         case 7:
-            if(currentPosition - currentPosition - slip < START_POSITION) {
+            if(currentPosition - slip < START_POSITION) {
                 currentPosition = track.at(START_POSITION - OFFSET);
             } else {
                 currentPosition = track.at((currentPosition - OFFSET) - slip);
