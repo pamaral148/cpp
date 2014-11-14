@@ -16,6 +16,11 @@ const short START_POSITION = 1;
 const short OFFSET = 1;
 const unsigned short FLOOR = 1;
 const unsigned short CEILING = 10;
+const std::string START_TEXT = "ON YOUR MARK, GET SET\nBANG\t\t\t   !!!!\nAND THEY'RE OFF\t   !!!!";
+const char TORTOISE = 'T';
+const char HARE = 'H';
+const char BLANK = ' ';
+const std::string HIT = "OUCH!!!";
 
 // accepts an array references and initializes
 // track array with positions starting at 1
@@ -44,10 +49,28 @@ int main() {
     int tortoisePosition = track.at(START_POSITION - OFFSET);
     int harePosition = track.at(START_POSITION - OFFSET);
     
+    std::cout << START_TEXT << std::endl;
     while (!isWinner(tortoisePosition) && !isWinner(harePosition)) {
         int random = randomInt(engine);
         moveTortoise(tortoisePosition, random, track);
         moveHare(harePosition, random, track);
+        for(auto step : track) {
+            if (step == tortoisePosition || step == harePosition) {
+                if (step == tortoisePosition && step == harePosition) {
+                    std::cout << HIT;
+                } else {
+                    if(step == tortoisePosition) {
+                        std::cout << TORTOISE;
+                    }
+                    if(step == harePosition) {
+                        std::cout << HARE;
+                    }
+                }
+            } else {
+                std::cout << BLANK;
+            }
+        }
+        std::cout << std::endl;
     }
     
     if(isWinner(tortoisePosition)) {
