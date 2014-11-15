@@ -10,10 +10,10 @@
 #include <array>
 #include <random>
 #include <string>
+#include <unistd.h>
 
 const size_t SIZE = 70;
 const short START_POSITION = 1;
-const short OFFSET = 1;
 const unsigned short FLOOR = 1;
 const unsigned short CEILING = 10;
 const std::string START_TEXT = "ON YOUR MARK, GET SET\nBANG\t\t\t   !!!!\nAND THEY'RE OFF\t   !!!!";
@@ -21,21 +21,26 @@ const char TORTOISE = 'T';
 const char HARE = 'H';
 const char BLANK = ' ';
 const std::string HIT = "OUCH!!!";
+const std::string HARE_WINS = "Hare Wins. Yuch.";
+const std::string TORTOISE_WINS = "TORTOISE WINS!!! YAY!!!";
+const int DELAY_MICROSECONDS = 1000000;
 
 // accepts an array references and initializes
 // track array with positions starting at 1
 void initTrack(std::array<int, SIZE> &track);
 
 // accepts a reference to the tortoise's current
-// position on the track and moves it animal
-// along the track
+// position on the track and moves it along
+// the track accroding to the random int
 void moveTortoise(int &currentPosition, const int &randomInt, const std::array<int, SIZE> &track);
 
 // accepts a reference to the hare's current
 // position on the track and moves it
-// animal along the track
+// along the track accroding to the random int
 void moveHare(int &currentPosition, const int &randomInt, const std::array<int, SIZE> &track);
 
+// checks if the runner has reached the
+// finish line and returns true if yes
 bool isWinner(const int &currentPosition);
 
 int main() {
@@ -46,17 +51,18 @@ int main() {
     std::array<int, SIZE> track; // the race track
     initTrack(track);
     
-    int tortoisePosition = track.at(START_POSITION - OFFSET);
-    int harePosition = track.at(START_POSITION - OFFSET);
+    int tortoisePosition = track.front();
+    int harePosition = track.front();
     
     std::cout << START_TEXT << std::endl;
+    int numSeconds = 0;
     while (!isWinner(tortoisePosition) && !isWinner(harePosition)) {
         int random = randomInt(engine);
         moveTortoise(tortoisePosition, random, track);
         moveHare(harePosition, random, track);
         for(auto step : track) {
             if (step == tortoisePosition || step == harePosition) {
-                if (step == tortoisePosition && step == harePosition) {
+                if (tortoisePosition == harePosition) {
                     std::cout << HIT;
                 } else {
                     if(step == tortoisePosition) {
@@ -71,16 +77,19 @@ int main() {
             }
         }
         std::cout << std::endl;
+        usleep(DELAY_MICROSECONDS);
+        ++numSeconds;
     }
     
     if(isWinner(tortoisePosition)) {
-        std::cout << "Tortoise wins!" << std::endl;
+        std::cout << TORTOISE_WINS << std::endl;
     } else if(isWinner(harePosition)) {
-        std::cout << "Hare wins!" << std::endl;
+        std::cout << HARE_WINS << std::endl;
     } else {
         std::cout << "Tie!" << std::endl;
     }
     
+    std::cout << "TIME ELAPSED = " << numSeconds << " seconds";
     return 0;
 }
 
@@ -94,11 +103,16 @@ void initTrack(std::array<int, SIZE> &track)
     }
 }
 
+// checks if the runner has reached the
+// finish line and returns true if yes
 bool isWinner(const int &currentPosition)
 {
     return currentPosition == SIZE;
 }
 
+// accepts a reference to the tortoise's current
+// position on the track and moves it along
+// the track accroding to the random int
 void moveTortoise(int &currentPosition, const int &randomInt, const std::array<int, SIZE> &track)
 {
     const short slowPlod = 1;
@@ -112,24 +126,24 @@ void moveTortoise(int &currentPosition, const int &randomInt, const std::array<i
         case 3:
         case 4:
         case 5:
-            if (currentPosition + fastPlod > SIZE) {
-                currentPosition = track.at(SIZE - OFFSET);
+            if (currentPosition + fastPlod > track.size()) {
+                currentPosition = track.back();
             } else {
-                currentPosition = track.at((currentPosition - OFFSET) + fastPlod);
+                currentPosition = track.at(--currentPosition + fastPlod);
             }
             break;
         case 6:
         case 7:
-            if(currentPosition - slip < START_POSITION) {
-                currentPosition = track.at(START_POSITION - OFFSET);
+            if(currentPosition - slip < track.front()) {
+                currentPosition = track.front();
             } else {
-                currentPosition = track.at((currentPosition - OFFSET) - slip);
+                currentPosition = track.at(--currentPosition - slip);
             }
             break;
         case 8:
         case 9:
         case 10:
-            currentPosition = track.at((currentPosition - OFFSET) + slowPlod);
+            currentPosition += slowPlod;
             break;
         default:
             std::cerr << error;
@@ -137,6 +151,9 @@ void moveTortoise(int &currentPosition, const int &randomInt, const std::array<i
     }
 }
 
+// accepts a reference to the hare's current
+// position on the track and moves it
+// along the track accroding to the random int
 void moveHare(int &currentPosition, const int &randomInt, const std::array<int, SIZE> &track)
 {
     const short bigHop = 9;
@@ -152,30 +169,30 @@ void moveHare(int &currentPosition, const int &randomInt, const std::array<int, 
             break;
         case 3:
         case 4:
-            if (currentPosition + bigHop > SIZE) {
-                currentPosition = track.at(SIZE - OFFSET);
+            if (currentPosition + bigHop > track.size()) {
+                currentPosition = track.back();
             } else {
-                currentPosition = track.at((currentPosition - OFFSET) + bigHop);
+                currentPosition = track.at(--currentPosition + bigHop);
             }
             break;
         case 5:
-            if(currentPosition - bigSlip < START_POSITION) {
-                currentPosition = track.at(START_POSITION - OFFSET);
+            if(currentPosition - bigSlip < track.front()) {
+                currentPosition = track.front();
             } else {
-                currentPosition = track.at((currentPosition - OFFSET) - bigSlip);
+                currentPosition = track.at(--currentPosition - bigSlip);
             }
             break;
         case 6:
         case 7:
         case 8:
-            currentPosition = track.at((currentPosition - OFFSET) + smallHop);
+            currentPosition += smallHop;
             break;
         case 9:
         case 10:
-            if(currentPosition - smallSlip < START_POSITION) {
-                currentPosition = track.at(START_POSITION - OFFSET);
+            if(currentPosition - smallSlip < track.front()) {
+                currentPosition = track.front();
             } else {
-                currentPosition = track.at((currentPosition - OFFSET) - smallSlip);
+                currentPosition = track.at(--currentPosition - smallSlip);
             }
             break;
         default:
