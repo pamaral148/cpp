@@ -5,6 +5,9 @@
 //  Created by Paulo Amaral on 2014-11-13.
 //  Main function for assignment06 application
 //
+//  Implements race between tortoise and hare along
+//  the side of a slippery mountain.
+//
 
 #include <iostream>
 #include <array>
@@ -21,8 +24,9 @@ const char TORTOISE = 'T';
 const char HARE = 'H';
 const char BLANK = ' ';
 const std::string HIT = "OUCH!!!";
-const std::string HARE_WINS = "Hare Wins. Yuch.";
-const std::string TORTOISE_WINS = "TORTOISE WINS!!! YAY!!!";
+const std::string HARE_WINS = "\nHare Wins. Yuch.";
+const std::string TORTOISE_WINS = "\nTORTOISE WINS!!! YAY!!!";
+const std::string TIE = "\nTie!";
 const int DELAY_MICROSECONDS = 1000000;
 
 // accepts an array references and initializes
@@ -86,10 +90,9 @@ int main() {
     } else if(isWinner(harePosition)) {
         std::cout << HARE_WINS << std::endl;
     } else {
-        std::cout << "Tie!" << std::endl;
+        std::cout << TIE << std::endl;
     }
-    
-    std::cout << "TIME ELAPSED = " << numSeconds << " seconds";
+    std::cout << "\nTIME ELAPSED = " << numSeconds << " seconds" << std::endl;
     return 0;
 }
 
