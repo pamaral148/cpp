@@ -5,6 +5,11 @@
 //  Created by Paulo Amaral on 2014-11-13.
 //  Main function for assignment06 application
 //
+//  Runs a race between a tortoise and hare by
+//  moving each animal along a track at one second
+//  intervals until one of the animals raeches the
+//  end; track is slippery so animals may move
+//  forward or back depending on chance
 
 #include <iostream>
 #include <array>
