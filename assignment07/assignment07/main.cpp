@@ -3,7 +3,7 @@
 //  assignment07
 //
 //  Created by Paulo Amaral on 2014-11-13.
-//  Main function for assignment06 application
+//  Main function for assignment07 application
 //
 //  Runs a race between a tortoise and hare by
 //  moving each animal along a track at one second
