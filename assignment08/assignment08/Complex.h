@@ -3,6 +3,8 @@
 //  assignment08
 //
 //  Created by Paulo Amaral on 2014-11-20.
+//  Student #: a00887758
+//
 //  Class that represents complex numbers for comp2617 assignment08
 //
 
@@ -42,7 +44,7 @@ public:
     void display() const;
     
     // arithmetic functions that perform
-    // += and -= operrations for Complex
+    // += and -= operations for Complex
     // numbers and return a reference to
     // the modified object
     Complex & plusEq(const Complex &term);

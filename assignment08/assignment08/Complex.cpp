@@ -3,7 +3,9 @@
 //  assignment08
 //
 //  Created by Paulo Amaral on 2014-11-20.
-//  Copyright (c) 2014 a00887758. All rights reserved.
+//  Student #: a00887758
+//
+//  Class that represents complex numbers for comp2617 assignment08
 //
 
 #include "Complex.h"
