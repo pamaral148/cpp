@@ -10,6 +10,7 @@
 #define __assignment08__Complex__
 
 #include <stdio.h>
+#include <iostream>
 
 class Complex
 {
@@ -39,6 +40,13 @@ public:
     // format: "( realNumber, imaginaryNumber )"
     // with 4 digits of precision
     void display() const;
+    
+    // arithmetic functions that perform
+    // += and -= operrations for Complex
+    // numbers and return a reference to
+    // the modified object
+    Complex & plusEq(const Complex &term);
+    Complex & minusEq(const Complex &term);
 
 private:
     double realPart;

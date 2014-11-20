@@ -58,5 +58,29 @@ Complex & Complex::setImaginaryPart(const double &imaginaryPart)
 // with 4 digits of precision
 void Complex::display() const
 {
-    ; // TODO display
+    std::cout << "( " << getRealPart() << ", " << getImaginaryPart() << ")" << std::endl;
+}
+
+// takes a const reference to a Complex object and
+// adds the real part to the Object's real part and
+// then adds the imaginary part to the Object's
+// imaginary part; returns a reference to the current
+// object
+Complex & Complex::plusEq(const Complex &term)
+{
+    setRealPart(getRealPart() + term.getRealPart()).
+    setImaginaryPart(getImaginaryPart() + term.getImaginaryPart());
+    return *this;
+}
+
+// takes a const reference to a Complex object and
+// subtracts the real part from the Object's real part and
+// then subtracts the imaginary part from the Object's
+// imaginary part; returns a reference to the current
+// object
+Complex & Complex::minusEq(const Complex &term)
+{
+    setRealPart(getRealPart() - term.getRealPart()).
+    setImaginaryPart(getImaginaryPart() - term.getImaginaryPart());
+    return *this;
 }
