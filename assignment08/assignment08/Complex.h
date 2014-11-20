@@ -10,7 +10,6 @@
 #define __assignment08__Complex__
 
 #include <stdio.h>
-#include <iostream>
 
 class Complex
 {
@@ -18,6 +17,7 @@ public:
     // static constant default values
     static const double DEFAULT_REAL;
     static const double DEFAULT_IMAGINARY;
+    static const int OUTPUT_PRECISION;
     
     // single constructor that uses default values
     // for each optional parameter

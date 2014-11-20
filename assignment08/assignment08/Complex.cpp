@@ -7,10 +7,12 @@
 //
 
 #include "Complex.h"
+#include <iostream>
+#include <iomanip>
 
 const double Complex::DEFAULT_REAL = 1;
-
 const double Complex::DEFAULT_IMAGINARY = 0;
+const int Complex::OUTPUT_PRECISION = 4;
 
 // single constructor that uses default values
 // for each optional parameter
@@ -58,7 +60,9 @@ Complex & Complex::setImaginaryPart(const double &imaginaryPart)
 // with 4 digits of precision
 void Complex::display() const
 {
-    std::cout << "( " << getRealPart() << ", " << getImaginaryPart() << ")" << std::endl;
+    std::cout << std::fixed << std::setprecision(OUTPUT_PRECISION) <<
+    "( " << getRealPart() << ", " << getImaginaryPart()
+    << ")";
 }
 
 // takes a const reference to a Complex object and
