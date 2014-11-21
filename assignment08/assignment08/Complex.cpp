@@ -21,9 +21,7 @@ const int Complex::OUTPUT_PRECISION = 4;
 Complex::Complex(const double &realPart,
                  const double &imaginaryPart)
     :realPart(realPart), imaginaryPart(imaginaryPart)
-{
-    // TODO validation
-}
+{ /* empty ctor body */ }
 
 // returns a const reference to the
 // real part of the complex number
