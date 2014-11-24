@@ -61,7 +61,7 @@ Complex & Complex::setImaginaryPart(const double &imaginaryPart)
 void Complex::display() const
 {
     std::cout << std::fixed << std::setprecision(OUTPUT_PRECISION) <<
-    "( " << getRealPart() << ", " << getImaginaryPart()
+    "( " << getRealPart() << " , " << getImaginaryPart()
     << ")";
 }
 
