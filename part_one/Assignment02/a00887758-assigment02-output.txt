@@ -1,0 +1,43 @@
+Name: Paulo Amaral
+Student Number: A00887758
+Date: 2014-10-05
+File: Output from Comp2617 Assignment 02
+
+======== PART 1 ================
+
+Enter an integer between 0 and 20: -1
+Enter an integer between 0 and 20: 21
+Enter an integer between 0 and 20: 0
+0!: 1
+
+Enter an integer between 0 and 20: 12
+12!: 479001600
+
+Enter an integer between 0 and 20: 20
+20!: 2432902008176640000
+
+======== PART 2 ================
+
+The number of terms to compute is (5 to 13 are valid values): 4
+The number of terms to compute is (5 to 13 are valid values): 14
+The number of terms to compute is (5 to 13 are valid values): 5
+The value of e is: 2.71666666667
+
+The number of terms to compute is (5 to 13 are valid values): 13
+The value of e is: 2.71828182845
+
+======== PART 3 ================
+
+Input a value for the power between 1 and 709: 0
+Input a value for the power between 1 and 709: 710
+Input a value for the power between 1 and 709: 1
+e raised to the 1 power is 2.71828182846
+
+Input a value for the power between 1 and 709: 20
+e raised to the 20 power is 485165195.41
+
+Input a value for the power between 1 and 709: 156
+e raised to the 156 power is 5.62262574608e+67
+
+Input a value for the power between 1 and 709: 709
+e raised to the 709 power is 8.21840746155e+307

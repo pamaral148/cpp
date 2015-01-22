@@ -1,0 +1,148 @@
+Paulo Amaral
+A00887758
+Comp 2617 Output Assignment 05
+==============================================================
+Test Case 1 (uses assigment 5 instruction example input)
+==============================================================
+
+Enter # 1 : 25
+The number: 25 is unique
+
+Enter # 2 : 35
+The number: 35 is unique
+
+Enter # 3 : 50
+The number: 50 is unique
+
+Enter # 4 : 23
+The number: 23 is unique
+
+Enter # 5 : 95
+The number: 95 is unique
+
+Enter # 6 : 55
+The number: 55 is unique
+
+Enter # 7 : 50
+
+Enter # 8 : 9
+The number entered is not in the valid range of 10 to 100
+
+Enter # 8 : 85
+The number: 85 is unique
+
+Enter # 9 : 45
+The number: 45 is unique
+
+Enter # 10 : 25
+
+Enter # 11 : 97
+The number: 97 is unique
+
+Enter # 12 : 56
+The number: 56 is unique
+
+Enter # 13 : 56
+
+Enter # 14 : 33
+The number: 33 is unique
+
+Enter # 15 : 75
+The number: 75 is unique
+
+Enter # 16 : 95
+
+Enter # 17 : 35
+
+Enter # 18 : 101
+The number entered is not in the valid range of 10 to 100
+
+Enter # 18 : 86
+The number: 86 is unique
+
+Enter # 19 : 100
+The number: 100 is unique
+
+Enter # 20 : 45
+
+The unique numbers are: 
+
+	 25	 35	 50	 23	 95	
+	 55	 85	 45	 97	 56	
+	 33	 75	 86	100
+
+==============================================================
+Test Case 2
+==============================================================
+
+Enter # 1 : 23
+The number: 23 is unique
+
+Enter # 2 : 24
+The number: 24 is unique
+
+Enter # 3 : 100
+The number: 100 is unique
+
+Enter # 4 : 100
+
+Enter # 5 : 23
+
+Enter # 6 : 50
+The number: 50 is unique
+
+Enter # 7 : 1
+The number entered is not in the valid range of 10 to 100
+
+Enter # 7 : 101
+The number entered is not in the valid range of 10 to 100
+
+Enter # 7 : 9
+The number entered is not in the valid range of 10 to 100
+
+Enter # 7 : 1000
+The number entered is not in the valid range of 10 to 100
+
+Enter # 7 : 66
+The number: 66 is unique
+
+Enter # 8 : 54
+The number: 54 is unique
+
+Enter # 9 : 54
+
+Enter # 10 : 34
+The number: 34 is unique
+
+Enter # 11 : 10
+The number: 10 is unique
+
+Enter # 12 : 23
+
+Enter # 13 : 76
+The number: 76 is unique
+
+Enter # 14 : 65
+The number: 65 is unique
+
+Enter # 15 : 89
+The number: 89 is unique
+
+Enter # 16 : 90
+The number: 90 is unique
+
+Enter # 17 : 91
+The number: 91 is unique
+
+Enter # 18 : 91
+
+Enter # 19 : 91
+
+Enter # 20 : 44
+The number: 44 is unique
+
+The unique numbers are: 
+
+	 23	 24	100	 50	 66	
+	 54	 34	 10	 76	 65	
+	 89	 90	 91	 44

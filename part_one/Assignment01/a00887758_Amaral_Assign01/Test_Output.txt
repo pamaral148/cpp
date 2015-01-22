@@ -1,0 +1,37 @@
+Console output for Comp2617 Assignment01
+Student: A00887758
+Name: Paulo Amaral
+
+pjamaral:~ $ Assignment01 
+Amount cannot be less than 0, set balance to 0 (input=-25)
+account1 balance: $50
+account2 balance: $25
+
+Enter deposit amount for account1: 50
+
+deposit 50 into account1 balance
+
+account1 balance: $100
+account2 balance: $25
+
+Enter deposit amount for account2: 75
+
+deposit 75 into account2 balance
+
+account1 balance: $100
+account2 balance: $100
+
+Enter withdrawal amount for account1: 110
+
+attempting to subtract 110 from account1 balance
+
+Debit amount must be less than current balance (input=110)
+account1 balance: $100
+account2 balance: $100
+
+Enter withdrawal amount for account2: 50
+
+attempting to subtract 50 from account2 balance
+
+account1 balance: $100
+account2 balance: $50
