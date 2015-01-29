@@ -14,7 +14,19 @@
 
 class ThreeDimensionalShape: public Shape
 {
+public:
     
+    explicit ThreeDimensionalShape(const double &);
+    
+    void setHeight(const double &); // set the height
+    double getHeight() const; // get the height
+    
+    virtual double Area() const override;    // overrides Area() of Shape class
+    virtual double Volume() const = 0;   // calculate and return volume
+
+protected:
+    
+    double mHeight;  // member used to represent height
 };
 
 #endif /* defined(__Assignment01__ThreeDimensionalShape__) */

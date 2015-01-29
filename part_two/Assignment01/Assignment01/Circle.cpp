@@ -5,8 +5,6 @@
 
 #include "Circle.h"
 
-const double Circle::pi = 3.141592654;  // init. static member
-
 // constructor
 Circle::Circle(void)
 :mRadius(0.0)
@@ -34,5 +32,5 @@ double Circle::getRadius (void) const
 // used top calculate and return area.
 double Circle::Area (void) const
 {
-    return Circle::pi * this->mRadius * this->mRadius ;
+    return Shape::pi * this->mRadius * this->mRadius ;
 }

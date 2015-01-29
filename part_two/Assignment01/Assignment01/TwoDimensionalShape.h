@@ -14,6 +14,8 @@
 
 class TwoDimensionalShape: public Shape
 {
+public:
+    virtual double Area() const override = 0;  // overrides Area() method of Shape class
     
 };
 

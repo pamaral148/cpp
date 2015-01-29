@@ -24,8 +24,7 @@ public:
     virtual double Area() const override;  // overrides Area() method of Shape class
     
 protected:
-    const static double pi; // Static member used in calculations
-    // Only one of these instantiated for the whole class!
+    
     double mRadius;  // member used to represent radius
 };
 

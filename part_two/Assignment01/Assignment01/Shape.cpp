@@ -5,6 +5,8 @@
 
 #include "Shape.h"
 
+const double Shape::pi = 3.141592654;  // init. static member
+
 int Shape::mObjectCount = 0;
 
 // constructor
@@ -41,16 +43,4 @@ int Shape::getNoOfSides() const
 int Shape::getObjectCount()
 {
     return Shape::mObjectCount;
-}
-
-// used to calculate and return area
-double Shape::Area(void) const
-{
-    return 0.0;
-}
-
-// used to calculate and return volume
-double Shape::Volume(void) const
-{
-    return 0.0;
 }

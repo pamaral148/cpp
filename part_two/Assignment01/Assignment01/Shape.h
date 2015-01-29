@@ -20,14 +20,14 @@ public:
     
     static int getObjectCount();     // get the object count
     
-    virtual double Area() const;     // calculate and return area
-    virtual double Volume() const;   // calculate and return volume
+    virtual double Area() const = 0; // pure virtual: calculate and return area
     
 protected:
     int mNoOfSides; // represents # of sides in Shape object
     static int mObjectCount; // a static member - counts the # of Shape
     //          objects currently instantiated
     // Only one of these instantiated for the whole class!
+    const static double pi; // Static member used in calculations
 };
 
 #endif /* defined(__Assignment01__Shape__) */

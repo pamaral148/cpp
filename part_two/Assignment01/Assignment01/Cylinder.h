@@ -13,19 +13,18 @@
 #include <stdio.h>
 #include "ThreeDimensionalShape.h"
 
-class Cylinder :public ThreeDimensionalShape
+class Cylinder : public ThreeDimensionalShape
 {
 public:
     Cylinder(void); // constructor
     
-    void setHeight(const double &); // set the height
-    double getHeight() const; // get the height
+    void setRadius(const double &);  //set the radius
+    double getRadius() const;  // get the radius
     
-    virtual double Area() const override;    // overrides Area()   method of Circle class
+    double Area (void) const;
     virtual double Volume() const override;  // overrides Volume() method of Shape  class
-    
-protected:
-    double mHeight;  // member used to represent height
+private:
+     double mRadius;  // member used to represent radius
 };
 
 #endif /* defined(__Assignment01__Cylinder__) */
