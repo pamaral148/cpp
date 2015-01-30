@@ -29,10 +29,10 @@ public:
     // pure virtual: calculate and return radius
     virtual double Volume() const = 0;
 protected:
-    // explicit ctor that sets height of object
-    // protected so no client code calls this without derived
+    // sets height of object protected so no
+    // client code calls this without derived
     // object
-    explicit ThreeDimensionalShape(const double &height, const int &noOfSides);
+    ThreeDimensionalShape(const double &height, const int &noOfSides);
     // member used to represent radius
     double mRadius;
 private:
