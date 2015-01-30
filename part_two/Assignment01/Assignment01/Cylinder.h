@@ -22,9 +22,15 @@ public:
     ~Cylinder();
     // calculate the area of the cylinder
     double Area (void) const;
-    // calculate the Volume of the cylinder; overrides the
-    // base pure virtual method
+    // calculate the Volume of the cylinder
     virtual double Volume() const override;
+    // set the radius
+    void setRadius(const double &);
+    // get the radius
+    double getRadius() const;
+private:
+    // member used to represent radius
+    double mRadius;
 };
 
 #endif /* defined(__Assignment01__Cylinder__) */

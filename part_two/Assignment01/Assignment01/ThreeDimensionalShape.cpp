@@ -9,7 +9,7 @@
 #include "ThreeDimensionalShape.h"
 
 ThreeDimensionalShape::ThreeDimensionalShape(const double &height, const int &noOfSides)
-: mHeight(0.0), mRadius(0.0), Shape(noOfSides)
+: mHeight(0.0), Shape(noOfSides)
 {
     this->setHeight(height);
 }
@@ -35,19 +35,3 @@ double ThreeDimensionalShape::getHeight (void) const
 {
     return this->mHeight;
 }
-
-void ThreeDimensionalShape::setRadius(const double & radius)
-{
-    if (radius > 0.0) // Make sure input is a valid value
-    {
-        this->mRadius = radius;
-    }
-    
-    // otherwise just leave set to original value
-}
-
-double ThreeDimensionalShape::getRadius() const
-{
-    return this->mRadius;
-}
-

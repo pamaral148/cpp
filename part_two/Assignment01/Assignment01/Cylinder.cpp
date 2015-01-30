@@ -7,7 +7,7 @@
 
 // constructor
 Cylinder::Cylinder(void)
-: ThreeDimensionalShape(0.0, 3)
+: mRadius(0.0), ThreeDimensionalShape(0.0, 3)
 { }
 
 // destructor
@@ -27,4 +27,19 @@ double Cylinder::Area (void) const
 double Cylinder::Volume (void) const
 {
     return Shape::pi * this->getRadius() * this->getRadius() * this->getHeight();
+}
+
+void Cylinder::setRadius(const double & radius)
+{
+    if (radius > 0.0) // Make sure input is a valid value
+    {
+        this->mRadius = radius;
+    }
+    
+    // otherwise just leave set to original value
+}
+
+double Cylinder::getRadius() const
+{
+    return this->mRadius;
 }
