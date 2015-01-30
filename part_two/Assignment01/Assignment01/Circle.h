@@ -21,9 +21,9 @@ public:
     // destructor
     virtual ~Circle();
     // set the radius
-    void setRadius(const double &);
+    virtual void setRadius(const double &) override;
     // get the radius
-    double getRadius() const;
+    virtual double getRadius() const override;
     // overrides Area() method of Shape class
     virtual double Area() const override;
 protected:

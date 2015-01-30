@@ -35,7 +35,7 @@ void Circle::setRadius(const double & setVal)
 // used to return current value of mRadius member
 double Circle::getRadius (void) const
 {
-    return this->mRadius ;
+    return this->mRadius;
 }
 
 // used top calculate and return area.

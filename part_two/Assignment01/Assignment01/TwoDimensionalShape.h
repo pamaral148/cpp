@@ -15,7 +15,12 @@
 class TwoDimensionalShape: public Shape
 {
 public:
-    virtual ~TwoDimensionalShape(); // virtual destructor
+    // virtual destructor
+    virtual ~TwoDimensionalShape();
+    // pure virtual: set radius
+    virtual void setRadius(const double &) = 0;
+    // pure virtual: get radius
+    virtual double getRadius() const = 0;
 protected:
     // constructor
     TwoDimensionalShape();
