@@ -32,6 +32,9 @@ protected:
     // client code calls this without derived
     // object
     ThreeDimensionalShape(const double &height, const int &noOfSides);
+protected:
+    // member used to represent radius
+    double mRadius;
 private:
     // member used to represent height
     double mHeight;

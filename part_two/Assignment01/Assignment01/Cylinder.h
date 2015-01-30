@@ -21,16 +21,16 @@ public:
     // destructor
     ~Cylinder();
     // calculate the area of the cylinder
-    double Area (void) const;
+    virtual double Area (void) const;
     // calculate the Volume of the cylinder
     virtual double Volume() const override;
     // set the radius
-    void setRadius(const double &);
+    virtual void setRadius(const double &);
     // get the radius
-    double getRadius() const;
+    virtual double getRadius() const;
 private:
-    // member used to represent radius
-    double mRadius;
+    // the default no of sides for the object
+    const static int defaultNoSides;
 };
 
 #endif /* defined(__Assignment01__Cylinder__) */

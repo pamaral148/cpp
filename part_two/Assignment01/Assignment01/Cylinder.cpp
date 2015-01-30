@@ -5,9 +5,12 @@
 
 #include "Cylinder.h"
 
+// the default no of sides for the object
+const int Cylinder::defaultNoSides = 3;
+
 // constructor
 Cylinder::Cylinder(void)
-: mRadius(0.0), ThreeDimensionalShape(0.0, 3)
+: ThreeDimensionalShape(0.0, defaultNoSides)
 { }
 
 // destructor
