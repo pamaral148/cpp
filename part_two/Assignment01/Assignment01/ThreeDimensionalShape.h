@@ -22,12 +22,19 @@ public:
     // get the height
     double getHeight() const;
     // pure virtual: calculate and return volume
+    // set the radius
+    virtual void setRadius(const double &) = 0;
+    // get the radius
+    virtual double getRadius() const = 0;
+    // pure virtual: calculate and return radius
     virtual double Volume() const = 0;
 protected:
     // explicit ctor that sets height of object
     // protected so no client code calls this without derived
     // object
     explicit ThreeDimensionalShape(const double &height);
+    // member used to represent radius
+    double mRadius;
 private:
     double mHeight;  // member used to represent height
 };

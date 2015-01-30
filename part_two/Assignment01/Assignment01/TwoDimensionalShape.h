@@ -24,6 +24,8 @@ public:
 protected:
     // constructor
     TwoDimensionalShape();
+    // member used to represent radius
+    double mRadius;
 private:
     // the default no of sides for the object
     const static int defaultNoSides;

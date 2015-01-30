@@ -13,6 +13,7 @@ const int TwoDimensionalShape::defaultNoSides = 2;
 
 // constructor
 TwoDimensionalShape::TwoDimensionalShape()
+:mRadius(0.0)
 {
     this->setNoOfSides(this->defaultNoSides);
 }

@@ -9,7 +9,7 @@
 #include "ThreeDimensionalShape.h"
 
 ThreeDimensionalShape::ThreeDimensionalShape(const double &height)
-: mHeight(0.0)
+: mHeight(0.0), mRadius(0.0)
 {
     this->setHeight(height);
 }

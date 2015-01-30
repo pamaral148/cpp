@@ -29,9 +29,6 @@ public:
     // calculate the Volume of the cylinder; overrides the
     // base pure virtual method
     virtual double Volume() const override;
-private:
-    // member used to represent radius
-    double mRadius;
 };
 
 #endif /* defined(__Assignment01__Cylinder__) */

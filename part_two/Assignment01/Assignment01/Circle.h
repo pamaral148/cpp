@@ -26,9 +26,7 @@ public:
     virtual double getRadius() const override;
     // overrides Area() method of Shape class
     virtual double Area() const override;
-protected:
-    // member used to represent radius
-    double mRadius;
+private:
     // the default no of sides for the object
     const static int defaultNoSides;
 };

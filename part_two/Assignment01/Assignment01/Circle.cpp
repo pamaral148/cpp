@@ -10,7 +10,6 @@ const int Circle::defaultNoSides = 1;
 
 // constructor
 Circle::Circle(void)
-:mRadius(0.0)
 {
     this->setNoOfSides(this->defaultNoSides);
 }
