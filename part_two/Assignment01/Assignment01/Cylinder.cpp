@@ -7,7 +7,7 @@
 
 // constructor
 Cylinder::Cylinder(void)
-: ThreeDimensionalShape(3)
+: ThreeDimensionalShape(0.0, 3)
 { }
 
 // destructor

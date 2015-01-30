@@ -10,9 +10,12 @@ const double Shape::pi = 3.141592654;  // init. static member
 int Shape::mObjectCount = 0;
 
 // constructor
-Shape::Shape(void)
-:mNoOfSides(1)
+Shape::Shape(const int &noOfSides)
+:mNoOfSides(noOfSides)
 {
+    if (noOfSides < 0) {
+        this->setNoOfSides(0);
+    }
     ++Shape::mObjectCount;
 }
 

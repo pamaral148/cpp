@@ -10,8 +10,9 @@ const int Circle::defaultNoSides = 1;
 
 // constructor
 Circle::Circle(void)
+: TwoDimensionalShape(this->defaultNoSides)
 {
-    this->setNoOfSides(this->defaultNoSides);
+    ; // empty ctor
 }
 
 // destructor

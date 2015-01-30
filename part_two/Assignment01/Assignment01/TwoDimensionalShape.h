@@ -23,7 +23,7 @@ public:
     virtual double getRadius() const = 0;
 protected:
     // constructor
-    TwoDimensionalShape();
+    explicit TwoDimensionalShape(const int &noOfSides);
     // member used to represent radius
     double mRadius;
 private:

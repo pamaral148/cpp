@@ -24,7 +24,7 @@ public:
     virtual double Area() const = 0;
 protected:
     // constructor
-    Shape(void);
+    explicit Shape(const int &noOfSides = 0);
     // represents # of sides in Shape object
     int mNoOfSides;
     // a static member - counts the # of Shape

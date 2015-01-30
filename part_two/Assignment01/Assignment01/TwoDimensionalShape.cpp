@@ -9,11 +9,11 @@
 #include "TwoDimensionalShape.h"
 
 // the default no of sides for the object
-const int TwoDimensionalShape::defaultNoSides = 2;
+const int TwoDimensionalShape::defaultNoSides = 1;
 
 // constructor
-TwoDimensionalShape::TwoDimensionalShape()
-:mRadius(0.0)
+TwoDimensionalShape::TwoDimensionalShape(const int &noOfSides)
+:mRadius(0.0), Shape(noOfSides)
 {
     this->setNoOfSides(this->defaultNoSides);
 }

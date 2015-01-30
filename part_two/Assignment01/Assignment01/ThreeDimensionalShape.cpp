@@ -8,8 +8,8 @@
 
 #include "ThreeDimensionalShape.h"
 
-ThreeDimensionalShape::ThreeDimensionalShape(const double &height)
-: mHeight(0.0), mRadius(0.0)
+ThreeDimensionalShape::ThreeDimensionalShape(const double &height, const int &noOfSides)
+: mHeight(0.0), mRadius(0.0), Shape(noOfSides)
 {
     this->setHeight(height);
 }
