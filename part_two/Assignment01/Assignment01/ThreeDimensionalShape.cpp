@@ -14,6 +14,11 @@ ThreeDimensionalShape::ThreeDimensionalShape(const double &height)
     this->setHeight(height);
 }
 
+ThreeDimensionalShape::~ThreeDimensionalShape()
+{
+    ; // empty dtor
+}
+
 // used to set mHeight member
 void ThreeDimensionalShape::setHeight(const double & setVal)
 {
@@ -29,9 +34,4 @@ void ThreeDimensionalShape::setHeight(const double & setVal)
 double ThreeDimensionalShape::getHeight (void) const
 {
     return this->mHeight;
-}
-
-double ThreeDimensionalShape::Area() const
-{
-    return 0.0;
 }

@@ -15,17 +15,20 @@
 class ThreeDimensionalShape: public Shape
 {
 public:
-    
-    explicit ThreeDimensionalShape(const double &);
-    
-    void setHeight(const double &); // set the height
-    double getHeight() const; // get the height
-    
-    virtual double Area() const override;    // overrides Area() of Shape class
-    virtual double Volume() const = 0;   // calculate and return volume
-
+    // destructor
+    virtual ~ThreeDimensionalShape();
+    // set the height
+    void setHeight(const double &);
+    // get the height
+    double getHeight() const;
+    // pure virtual: calculate and return volume
+    virtual double Volume() const = 0;
 protected:
-    
+    // explicit ctor that sets height of object
+    // protected so no client code calls this without derived
+    // object
+    explicit ThreeDimensionalShape(const double &height);
+private:
     double mHeight;  // member used to represent height
 };
 

@@ -7,3 +7,19 @@
 //
 
 #include "TwoDimensionalShape.h"
+
+// the default no of sides for the object
+const int TwoDimensionalShape::defaultNoSides = 2;
+
+// constructor
+TwoDimensionalShape::TwoDimensionalShape()
+{
+    this->setNoOfSides(this->defaultNoSides);
+}
+
+// destructor
+TwoDimensionalShape::~TwoDimensionalShape()
+{
+    ; // empty dtor
+}
+

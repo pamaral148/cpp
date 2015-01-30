@@ -16,15 +16,22 @@
 class Cylinder : public ThreeDimensionalShape
 {
 public:
-    Cylinder(void); // constructor
-    
-    void setRadius(const double &);  //set the radius
-    double getRadius() const;  // get the radius
-    
+    // constructor
+    Cylinder(void);
+    // destructor
+    ~Cylinder();
+    // set the radius
+    void setRadius(const double &);
+    // get the radius
+    double getRadius() const;
+    // calculate the area of the cylinder
     double Area (void) const;
-    virtual double Volume() const override;  // overrides Volume() method of Shape  class
+    // calculate the Volume of the cylinder; overrides the
+    // base pure virtual method
+    virtual double Volume() const override;
 private:
-     double mRadius;  // member used to represent radius
+    // member used to represent radius
+    double mRadius;
 };
 
 #endif /* defined(__Assignment01__Cylinder__) */

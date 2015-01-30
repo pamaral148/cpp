@@ -12,22 +12,27 @@
 class Shape
 {
 public:
-    Shape(void);  //constructor
-    virtual ~Shape(void); //destructor
-    
-    void setNoOfSides(const int &);  // set the # of sides
-    int getNoOfSides() const;        // get the # of sides
-    
-    static int getObjectCount();     // get the object count
-    
-    virtual double Area() const = 0; // pure virtual: calculate and return area
-    
+    // destructor
+    virtual ~Shape(void);
+    // set the # of sides
+    void setNoOfSides(const int &);
+    // get the # of sides
+    int getNoOfSides() const;
+    // get the object count
+    static int getObjectCount();
+    // pure virtual: calculate and return area
+    virtual double Area() const = 0;
 protected:
-    int mNoOfSides; // represents # of sides in Shape object
-    static int mObjectCount; // a static member - counts the # of Shape
-    //          objects currently instantiated
+    // constructor
+    Shape(void);
+    // represents # of sides in Shape object
+    int mNoOfSides;
+    // a static member - counts the # of Shape
+    // objects currently instantiated
     // Only one of these instantiated for the whole class!
-    const static double pi; // Static member used in calculations
+    static int mObjectCount;
+    // Static member used in calculations
+    const static double pi;
 };
 
 #endif /* defined(__Assignment01__Shape__) */

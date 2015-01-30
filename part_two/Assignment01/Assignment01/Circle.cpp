@@ -5,11 +5,20 @@
 
 #include "Circle.h"
 
+// the default no of sides for the object
+const int Circle::defaultNoSides = 1;
+
 // constructor
 Circle::Circle(void)
 :mRadius(0.0)
 {
-    this->setNoOfSides(1);  //  Why not init. this member in MIL ???
+    this->setNoOfSides(this->defaultNoSides);
+}
+
+// destructor
+Circle::~Circle()
+{
+    ; // empty dtor
 }
 
 // used to set value for mRadius member

@@ -16,16 +16,21 @@
 class Circle :public TwoDimensionalShape
 {
 public:
-    Circle(void); // constructor
-    
-    void setRadius(const double &);  //set the radius
-    double getRadius() const;  // get the radius
-    
-    virtual double Area() const override;  // overrides Area() method of Shape class
-    
+    // constructor
+    Circle(void);
+    // destructor
+    virtual ~Circle();
+    // set the radius
+    void setRadius(const double &);
+    // get the radius
+    double getRadius() const;
+    // overrides Area() method of Shape class
+    virtual double Area() const override;
 protected:
-    
-    double mRadius;  // member used to represent radius
+    // member used to represent radius
+    double mRadius;
+    // the default no of sides for the object
+    const static int defaultNoSides;
 };
 
 #endif /* defined(__Assignment01__Circle__) */

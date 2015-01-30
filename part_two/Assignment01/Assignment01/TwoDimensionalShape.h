@@ -15,8 +15,13 @@
 class TwoDimensionalShape: public Shape
 {
 public:
-    virtual double Area() const override = 0;  // overrides Area() method of Shape class
-    
+    virtual ~TwoDimensionalShape(); // virtual destructor
+protected:
+    // constructor
+    TwoDimensionalShape();
+private:
+    // the default no of sides for the object
+    const static int defaultNoSides;
 };
 
 #endif /* defined(__Assignment01__TwoDimensionalShape__) */

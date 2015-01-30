@@ -7,22 +7,26 @@
 
 // constructor
 Cylinder::Cylinder(void)
-: ThreeDimensionalShape(0.0)
+: ThreeDimensionalShape(3)
+{ }
+
+// destructor
+Cylinder::~Cylinder()
 {
-    this->setNoOfSides(3);   // Why not init. this member in MIL ???
+    ; // empty body
 }
 
 // used to caluclate and return area
 double Cylinder::Area (void) const
 {
     double TwoPiR = 2.0 * Shape::pi * this->mRadius;
-    return ( TwoPiR * this->mRadius ) + ( TwoPiR * this->mHeight );
+    return ( TwoPiR * this->mRadius ) + ( TwoPiR * this->getHeight() );
 }
 
 // used to claculate and return volume
 double Cylinder::Volume (void) const
 {
-    return Shape::pi * this->mRadius * this->mRadius * this->mHeight;
+    return Shape::pi * this->mRadius * this->mRadius * this->getHeight();
 }
 
 // used to set value for mRadius member
