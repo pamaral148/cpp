@@ -72,7 +72,6 @@ int main()
     //cout << "The volume of crclObj is: " << crclObj.Volume() << "\n\n\n";
     
     // Test Cylinder class
-    
     cyldObj.setRadius(5.5);
     cyldObj.setHeight(2.5);
     

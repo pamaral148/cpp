@@ -20,10 +20,6 @@ public:
     Cylinder(void);
     // destructor
     ~Cylinder();
-    // set the radius
-    void setRadius(const double &);
-    // get the radius
-    double getRadius() const;
     // calculate the area of the cylinder
     double Area (void) const;
     // calculate the Volume of the cylinder; overrides the

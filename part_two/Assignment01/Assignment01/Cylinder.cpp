@@ -19,29 +19,12 @@ Cylinder::~Cylinder()
 // used to caluclate and return area
 double Cylinder::Area (void) const
 {
-    double TwoPiR = 2.0 * Shape::pi * this->mRadius;
-    return ( TwoPiR * this->mRadius ) + ( TwoPiR * this->getHeight() );
+    double TwoPiR = 2.0 * Shape::pi * this->getRadius();
+    return ( TwoPiR * this->getRadius() ) + ( TwoPiR * this->getHeight() );
 }
 
 // used to claculate and return volume
 double Cylinder::Volume (void) const
 {
-    return Shape::pi * this->mRadius * this->mRadius * this->getHeight();
-}
-
-// used to set value for mRadius member
-void Cylinder::setRadius(const double & setVal)
-{
-    if (setVal > 0.0) // Make sure input is a valid value
-    {
-        this->mRadius = setVal;
-    }
-    
-    // otherwise just leave set to original value
-}
-
-// used to return current value of mRadius member
-double Cylinder::getRadius (void) const
-{
-    return this->mRadius ;
+    return Shape::pi * this->getRadius() * this->getRadius() * this->getHeight();
 }
