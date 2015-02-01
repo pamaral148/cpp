@@ -1,10 +1,6 @@
-//
-//  TwoDimensionalShape.h
-//  Assignment01
-//
-//  Created by Paulo Amaral on 2015-01-28.
-//  Copyright (c) 2015 pamaral. All rights reserved.
-//
+// Assignment 1 Abstract Class: TwoDimensionalShape.h
+// Author: Paulo Amaral
+// Date: 2015-02-01
 
 #ifndef __Assignment01__TwoDimensionalShape__
 #define __Assignment01__TwoDimensionalShape__
@@ -19,8 +15,8 @@ public:
     virtual ~TwoDimensionalShape();
     // pure virtual: set radius
     virtual void setRadius(const double &radius) = 0;
-    // pure virtual: get radius
-    virtual double getRadius() const = 0;
+    // return the radius
+    double getRadius();
 protected:
     // constructor
     explicit TwoDimensionalShape(const int &noOfSides);

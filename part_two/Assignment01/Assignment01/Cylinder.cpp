@@ -11,13 +11,11 @@ const int Cylinder::defaultNoSides = 3;
 // constructor
 Cylinder::Cylinder(void)
 : ThreeDimensionalShape(defaultNoSides)
-{ }
+{ /* empty ctor */ }
 
 // destructor
 Cylinder::~Cylinder()
-{
-    ; // empty body
-}
+{ /* empty dtor */ }
 
 // used to caluclate and return area
 double Cylinder::Area (void) const
@@ -32,6 +30,7 @@ double Cylinder::Volume (void) const
     return Shape::pi * this->getRadius() * this->getRadius() * this->getHeight();
 }
 
+// sets the radius; must be > 0
 void Cylinder::setRadius(const double & radius)
 {
     if (radius > 0.0) // Make sure input is a valid value
@@ -40,9 +39,4 @@ void Cylinder::setRadius(const double & radius)
     }
     
     // otherwise just leave set to original value
-}
-
-double Cylinder::getRadius() const
-{
-    return this->mRadius;
 }

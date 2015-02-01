@@ -22,8 +22,6 @@ public:
     virtual ~Circle();
     // set the radius
     virtual void setRadius(const double &) override;
-    // get the radius
-    virtual double getRadius() const override;
     // overrides Area() method of Shape class
     virtual double Area() const override;
 private:

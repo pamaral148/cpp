@@ -1,10 +1,6 @@
-//
-//  ThreeDimensionalShape.h
-//  Assignment01
-//
-//  Created by Paulo Amaral on 2015-01-28.
-//  Copyright (c) 2015 pamaral. All rights reserved.
-//
+// Assignment 1 Abstract Class: ThreeDimensionalShape.h
+// Author: Paulo Amaral
+// Date: 2015-02-01
 
 #ifndef __Assignment01__ThreeDimensionalShape__
 #define __Assignment01__ThreeDimensionalShape__
@@ -25,8 +21,8 @@ public:
     virtual double Volume() const = 0;
     // pure virtual: set radius
     virtual void setRadius(const double &radius) = 0;
-    // pure virtual: get radius
-    virtual double getRadius() const = 0;
+    // get the radius
+    double getRadius() const;
 protected:
     // protected so no client code calls
     // this without derived object

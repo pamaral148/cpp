@@ -3,6 +3,9 @@
 // Author: Bob Langelaan
 // Date: Sept. 20th, 2014
 
+// Modified by: Paulo Amaral
+// Modified date: 2015-02-01
+
 #include "Shape.h"
 
 const double Shape::pi = 3.141592654;  // init. static member

@@ -26,8 +26,6 @@ public:
     virtual double Volume() const override;
     // set the radius
     virtual void setRadius(const double &);
-    // get the radius
-    virtual double getRadius() const;
 private:
     // the default no of sides for the object
     const static int defaultNoSides;

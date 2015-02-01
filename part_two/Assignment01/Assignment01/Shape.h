@@ -4,6 +4,9 @@
 // Author: Bob Langelaan
 // Date: Sept. 9, 2006
 
+// Modified by: Paulo Amaral
+// Modified date: 2015-02-01
+
 #ifndef __Assignment01__Shape__
 #define __Assignment01__Shape__
 

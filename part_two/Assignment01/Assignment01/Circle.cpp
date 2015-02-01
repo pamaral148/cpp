@@ -3,6 +3,9 @@
 // Author: Bob Langelaan
 // Date: Sept. 20th, 2014
 
+// Modified by: Paulo Amaral
+// Modified: 2015-02-01
+
 #include "Circle.h"
 
 // the default no of sides for the object
@@ -11,15 +14,11 @@ const int Circle::defaultNoSides = 1;
 // constructor
 Circle::Circle(void)
 : TwoDimensionalShape(this->defaultNoSides)
-{
-    ; // empty ctor
-}
+{ /* empty ctor */ }
 
 // destructor
 Circle::~Circle()
-{
-    ; // empty dtor
-}
+{ /* empty dtor */ }
 
 // used to set value for mRadius member
 void Circle::setRadius(const double & setVal)
@@ -30,12 +29,6 @@ void Circle::setRadius(const double & setVal)
     }
     
     // otherwise just leave set to original value
-}
-
-// used to return current value of mRadius member
-double Circle::getRadius (void) const
-{
-    return this->mRadius;
 }
 
 // used top calculate and return area.
