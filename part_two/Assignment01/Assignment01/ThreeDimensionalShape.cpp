@@ -8,10 +8,10 @@
 
 #include "ThreeDimensionalShape.h"
 
-ThreeDimensionalShape::ThreeDimensionalShape(const double &height, const int &noOfSides)
+ThreeDimensionalShape::ThreeDimensionalShape(const int &noOfSides)
 : mHeight(0.0), mRadius(0.0), Shape(noOfSides)
 {
-    this->setHeight(height);
+    // empty ctor
 }
 
 ThreeDimensionalShape::~ThreeDimensionalShape()

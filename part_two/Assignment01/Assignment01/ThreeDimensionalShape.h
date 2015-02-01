@@ -18,20 +18,19 @@ public:
     // destructor
     virtual ~ThreeDimensionalShape();
     // set the height
-    virtual void setHeight(const double &);
+    virtual void setHeight(const double &height);
     // get the height
     virtual double getHeight() const;
     // pure virtual: calculate and return volume
     virtual double Volume() const = 0;
     // pure virtual: set radius
-    virtual void setRadius(const double &) = 0;
+    virtual void setRadius(const double &radius) = 0;
     // pure virtual: get radius
     virtual double getRadius() const = 0;
 protected:
-    // sets height of object protected so no
-    // client code calls this without derived
-    // object
-    ThreeDimensionalShape(const double &height, const int &noOfSides);
+    // protected so no client code calls
+    // this without derived object
+    explicit ThreeDimensionalShape(const int &noOfSides);
 protected:
     // member used to represent radius
     double mRadius;

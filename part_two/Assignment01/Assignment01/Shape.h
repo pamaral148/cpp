@@ -15,7 +15,7 @@ public:
     // destructor
     virtual ~Shape(void);
     // set the # of sides
-    void setNoOfSides(const int &);
+    void setNoOfSides(const int &oOfSides);
     // get the # of sides
     int getNoOfSides() const;
     // get the object count
@@ -25,14 +25,15 @@ public:
 protected:
     // constructor
     explicit Shape(const int &noOfSides = 0);
-    // represents # of sides in Shape object
-    int mNoOfSides;
     // a static member - counts the # of Shape
     // objects currently instantiated
     // Only one of these instantiated for the whole class!
     static int mObjectCount;
     // Static member used in calculations
     const static double pi;
+private:
+    // represents # of sides in Shape object
+    int mNoOfSides;
 };
 
 #endif /* defined(__Assignment01__Shape__) */

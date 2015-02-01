@@ -26,7 +26,7 @@ Shape::~Shape(void)
 }
 
 // used to set mNoOfSides member
-void Shape::setNoOfSides(const int & setVal)
+void Shape::setNoOfSides(const int &setVal)
 {
     if (setVal > 0 )
     {

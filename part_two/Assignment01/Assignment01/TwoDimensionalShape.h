@@ -18,7 +18,7 @@ public:
     // virtual destructor
     virtual ~TwoDimensionalShape();
     // pure virtual: set radius
-    virtual void setRadius(const double &) = 0;
+    virtual void setRadius(const double &radius) = 0;
     // pure virtual: get radius
     virtual double getRadius() const = 0;
 protected:

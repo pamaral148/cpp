@@ -10,7 +10,7 @@ const int Cylinder::defaultNoSides = 3;
 
 // constructor
 Cylinder::Cylinder(void)
-: ThreeDimensionalShape(0.0, defaultNoSides)
+: ThreeDimensionalShape(defaultNoSides)
 { }
 
 // destructor
