@@ -11,6 +11,8 @@
 
 class HugeInteger
 {
+    friend std::ostream & operator<<(std::ostream &, const HugeInteger &);
+    friend std::istream & operator>>( std::istream &, HugeInteger & );
 public:
     //ctor that converts a "long long" into a HugeInteger
     HugeInteger( long long value = 0LL ); //0LL is constant literal value 0
@@ -38,17 +40,21 @@ public:
     
     //subtracts a "long long" (RHS) from LHS and puts result into a temp HugeInteger
     //    and returns result
-    HugeInteger subtract( long long RHS);
+    /* REMOVE: HugeInteger subtract( long long RHS); */
+    HugeInteger operator-( long long RHS );
     
     //subtracts a string (which will be converted into a HugeInteger) from LHS
     //    and puts result into a temp HugeInteger and returns result
-    HugeInteger subtract( const char * RHS);
+    /* REMOVE: HugeInteger subtract( const char * RHS); */
+    HugeInteger operator-( const char * RHS );
     
     //calculates the negation of the object pointed to by the this pointer and returns result
-    HugeInteger negate(void)const;
+    /* REMOVE: HugeInteger negate(void)const; */
+    HugeInteger operator-() const;
     
     //calculates the absolute value of the object pointed to by the this pointer and returns result
-    HugeInteger abs(void)const;
+    /* REMOVE: HugeInteger abs(void)const; */
+    HugeInteger operator~() const;
     
     //Is LHS (the object pointed to by the "this" pointer) equal to RHS
     bool isEqualTo( const HugeInteger & RHS)const;
@@ -75,13 +81,12 @@ public:
     void input( const char *str );
     
     //Output a HugInteger
-    void output()const;
+    /* REMOVE: void output()const; */
     
 private:
     bool negative;  // will be true if number is negative
     std::array<unsigned short,40> hugeInt; // each element in the array represents 
     //    one digit of the number
 };
-
 
 #endif /* defined(__Assignment02__HugeInteger__) */

@@ -113,7 +113,7 @@ HugeInteger & HugeInteger::operator+=( const HugeInteger &op )
     // if the signs of the 2 numbers are opposites, we need to do subtraction
     //     remember that x + y  ==  x - (-y)
     if ((this->negative && !(op.negative)) || (!(this->negative) && op.negative)){
-        return this->subInto(op.negate());
+        return this->operator-=(-op);
     }
     
     // NOTE: From here on, we know the two operands are the same sign
@@ -142,16 +142,29 @@ HugeInteger & HugeInteger::operator+=( const HugeInteger &op )
 
 // converts string into HugeInteger and then invokes
 //    HugeInteger::subInto(const HugeInteger & )
+/*
 HugeInteger HugeInteger::subtract( const char *str )
 {
     return this->subInto( HugeInteger( str ) );
 }
+*/
+HugeInteger HugeInteger::operator-( const char * str )
+{
+    return this->operator-=(str);
+}
 
 // converts long long into HugeInteger and then invokes
 //    HugeInteger::subInto(const HugeInteger & )
+/*
 HugeInteger HugeInteger::subtract( long long value )
 {
     return this->subInto( HugeInteger( value ) );
+}
+*/
+
+HugeInteger HugeInteger::operator-( long long value )
+{
+    return this->operator-=( value );
 }
 
 // Subracts from the HugeInteger pointed to by the "this" pointer
@@ -222,7 +235,7 @@ HugeInteger & HugeInteger::operator-=( const HugeInteger &op )
     // if the signs of the 2 numbers are opposites, we need to do addition
     //     remember that x - y  ==  x + (-y)
     if ((this->negative && !(op.negative)) || (!(this->negative) && op.negative)){
-        return this->operator+=(op.negate());
+        return this->operator+=(-op);
     }
     
     // NOTE: From here on, we know the two operands are the same sign
@@ -234,7 +247,7 @@ HugeInteger & HugeInteger::operator-=( const HugeInteger &op )
         this->negative = false;
         return *this;
         
-    } else if ( (op.abs()).isLessThan(this->abs())){ // is magnitude of LHS > RHS
+    } else if ( (~op).isLessThan(this->operator-())){ // is magnitude of LHS > RHS
         
         bigger = *this;
         smaller = op;
@@ -243,7 +256,7 @@ HugeInteger & HugeInteger::operator-=( const HugeInteger &op )
         
         smaller = *this;
         bigger = op;
-        *this = this->negate(); // result needs to be negated
+        *this = this->operator-(); // result needs to be negated
     }
     
     // subtract smaller (in magnitude) from biggger (in magnitude)
@@ -275,7 +288,16 @@ HugeInteger & HugeInteger::operator-=( const HugeInteger &op )
     return *this;
 }
 
+/*
 HugeInteger HugeInteger::negate(void)const
+{
+    HugeInteger temp = *this;
+    temp.negative = !temp.negative;
+    return temp;
+}
+*/
+
+HugeInteger HugeInteger::operator-() const
 {
     HugeInteger temp = *this;
     temp.negative = !temp.negative;
@@ -283,7 +305,15 @@ HugeInteger HugeInteger::negate(void)const
 }
 
 // computes and returns absolute value of operand
+/*
 HugeInteger HugeInteger::abs(void)const
+{
+    HugeInteger temp = *this;
+    temp.negative = false;
+    return temp;
+}
+*/
+HugeInteger HugeInteger::operator~() const
 {
     HugeInteger temp = *this;
     temp.negative = false;
@@ -415,6 +445,50 @@ void HugeInteger::input( const char *str )
     }
 }
 
+
+std::istream & operator>>( std::istream &os, HugeInteger &obj )
+{
+    // assume positive for now
+    obj.negative = false;
+    
+    // init. to all zeros first
+    for( unsigned int i = 0; i < obj.hugeInt.size(); i++ )
+    {
+        obj.hugeInt[i] = 0;
+    }
+    
+    char * str;
+    cin.getline(str, INT_MAX);
+    int len = static_cast<int>(strlen( str ));
+    int k = 0;
+    
+    // if sign part of string, we need to process
+    // if + sign, we ignore since we start with assumption that
+    //     input string represents a positive number
+    if ((str[k] == '-') || (str[k] == '+')){
+        if (str[k] == '-'){ // if negative, set negative member to true
+            obj.negative = true;
+        }
+        
+        ++k; // go to next char in string "str"
+        --len; // length of number is one less
+    }
+    
+    for( unsigned int j = obj.hugeInt.size() - len; j < obj.hugeInt.size(); j++, k++ )
+    {
+        if (isdigit(str[k])){
+            obj.hugeInt[j] = str[k] - '0';
+        }
+        else  // a problem with the string input !!!
+        {
+            obj = 0LL; // just set to -0 (LL is for type long long)
+            obj.negative = true;  // to signal there was a problem
+            break;     //   and go home
+        }
+    }
+}
+
+/*
 void HugeInteger::output()const
 {
     // find first non-zero digit
@@ -443,6 +517,37 @@ void HugeInteger::output()const
     {
         cout << static_cast<short>( this->hugeInt[i]);
     }
+}
+*/
+std::ostream & operator<<(std::ostream &os, const HugeInteger &obj)
+{
+    // find first non-zero digit
+    unsigned int i = 0;
+    while(i < obj.hugeInt.size()){
+        if(obj.hugeInt[i] != 0){
+            break;
+        }
+        ++i;
+    }
+    
+    // if all zeros, just output a single 0
+    if (i == obj.hugeInt.size())
+    {
+        cout << "0";
+        return os;
+    }
+    
+    // check if we need to ouput a negative sign
+    if (obj.negative){
+        cout << '-';
+    }
+    
+    // output remaining digits
+    for( ; i < obj.hugeInt.size(); i++)
+    {
+        cout << static_cast<short>( obj.hugeInt[i]);
+    }
+    return os;
 }
 
 
