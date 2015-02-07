@@ -88,6 +88,7 @@ int main()
     cout << "\n\ncout << --B << B\n";
     cout << --B << "  " << B << "\n";
     
+    /*
     // test overloaded type cast to double operator
     cout << "\n****** Test overloaded type cast to double operator ******\n";
     cout << "\nA = " << A << "\nB = " << B << "\n";
@@ -96,7 +97,7 @@ int main()
     cout << "\nA cast to a double is: " << dA;
     cout << "\nB cast to a double is: " << dB << '\n' << endl;
     
-    system("pause");
-    
+    //system("pause");
+    */
     return 0;
 } // end main
