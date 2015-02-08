@@ -45,16 +45,22 @@ HugeInteger::HugeInteger( const char *str )
     this->input( str ); //See HugeInteger::input() method below
 }
 
+// adds a string (which will be converted into a HugeInteger) with LHS into a temp
+// HugeInteger and returns result
 HugeInteger HugeInteger::operator+( const char *str )
 {
     return *this += str;
 }
 
+// adds a "long long" (RHS) and LHS and puts result into a temp HugeInteger
+// and returns result
 HugeInteger HugeInteger::operator+(long long op)
 {
     return *this += op;
 }
 
+// adds RHS into LHS (the object pointed to by the "this" pointer)
+// and returns result
 HugeInteger & HugeInteger::operator+=( const HugeInteger &op )
 {
     // if the signs of the 2 numbers are opposites, we need to do subtraction
@@ -87,16 +93,22 @@ HugeInteger & HugeInteger::operator+=( const HugeInteger &op )
     return *this;
 }
 
+// subtracts a string (which will be converted into a HugeInteger) from LHS
+// and puts result into a temp HugeInteger and returns result
 HugeInteger HugeInteger::operator-( const char * str )
 {
     return *this -= str;
 }
 
+// subtracts a "long long" (RHS) from LHS and puts result into a temp HugeInteger
+// and returns result
 HugeInteger HugeInteger::operator-( long long value )
 {
     return *this -= value ;
 }
 
+// subtracts RHS from LHS (the object pointed to by the "this" pointer)
+// and returns result
 HugeInteger & HugeInteger::operator-=( const HugeInteger &op )
 {
     // if the signs of the 2 numbers are opposites, we need to do addition
@@ -155,6 +167,8 @@ HugeInteger & HugeInteger::operator-=( const HugeInteger &op )
     return *this;
 }
 
+// calculates the negation of the object pointed
+// to by the this pointer and returns result
 HugeInteger HugeInteger::operator-() const
 {
     HugeInteger temp = *this;
@@ -162,6 +176,8 @@ HugeInteger HugeInteger::operator-() const
     return temp;
 }
 
+// calculates the absolute value of the object pointed
+// to by the this pointer and returns result
 HugeInteger HugeInteger::operator~() const
 {
     HugeInteger temp = *this;
@@ -203,6 +219,7 @@ HugeInteger HugeInteger::operator--(int)
     return tmp;
 }
 
+// is the object pointed to by the "this" pointer equal to zero
 bool HugeInteger::operator!() const
 {
     for (int i = hugeInt.size()-1; i >= 0; --i)
@@ -215,6 +232,7 @@ bool HugeInteger::operator!() const
     return true;
 }
 
+// Convert a string into a HugeInteger
 void HugeInteger::input( const char *str )
 {
     // assume positive for now
@@ -255,7 +273,7 @@ void HugeInteger::input( const char *str )
     }
 }
 
-
+// overloaded insertion operator
 std::istream & operator>>( std::istream &is, HugeInteger &obj )
 {
     char input_string[1002];
@@ -264,6 +282,7 @@ std::istream & operator>>( std::istream &is, HugeInteger &obj )
     return is;
 }
 
+// overloaded extraction operator
 std::ostream & operator<<(std::ostream &os, const HugeInteger &obj)
 {
     // find first non-zero digit
@@ -295,6 +314,7 @@ std::ostream & operator<<(std::ostream &os, const HugeInteger &obj)
     return os;
 }
 
+// overload typecast to double
 HugeInteger::operator double() const
 {
     double result = 1;
@@ -308,7 +328,13 @@ HugeInteger::operator double() const
         }
         ++i;
     }
+    
+    // get the power number is raised to
     unsigned long power = this->hugeInt.size() - i;
+    
+    // if all zeros, return 0 otherwise get the decimal
+    // amount as a string so that we can raise it
+    // to the correct power
     if(i == this->hugeInt.size()) {
         value += '0';
     } else if(i == this->hugeInt.size() - 1) {
@@ -323,10 +349,13 @@ HugeInteger::operator double() const
             }
         }
         
+        // raise the decimal value to the
+        // appropriate power
         for (int j = 1; j < power; ++j) {
             result *= 10;
         }
     }
+    
     if(this->negative) {
         return - (atof(value.c_str()) * result);
     } else {
