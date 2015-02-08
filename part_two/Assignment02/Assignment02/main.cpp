@@ -10,6 +10,15 @@ using namespace std;
 
 int main()
 {
+    /* Paulo's Test */
+    /*
+    HugeInteger pa;
+    cout << "Input HUGE INT: ";
+    cin >> pa;
+    cout << "\nValue: " << pa;
+    cout << "\nAs double: " << (double)pa << "\n";
+    */
+    
     HugeInteger A,B,C,D;
     
     // input value for A & B
@@ -88,7 +97,6 @@ int main()
     cout << "\n\ncout << --B << B\n";
     cout << --B << "  " << B << "\n";
     
-    /*
     // test overloaded type cast to double operator
     cout << "\n****** Test overloaded type cast to double operator ******\n";
     cout << "\nA = " << A << "\nB = " << B << "\n";
@@ -98,6 +106,6 @@ int main()
     cout << "\nB cast to a double is: " << dB << '\n' << endl;
     
     //system("pause");
-    */
+    
     return 0;
 } // end main

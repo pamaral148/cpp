@@ -123,6 +123,9 @@ public:
     //Convert a string into a HugeInteger
     void input( const char *str );
     
+    // overload typecast to double
+    operator double(void) const;
+    
 private:
     bool negative;  // will be true if number is negative
     std::array<unsigned short,40> hugeInt; // each element in the array represents 

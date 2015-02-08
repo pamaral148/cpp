@@ -6,6 +6,8 @@
 #include "HugeInteger.h"
 
 #include <iostream>
+#include "stdlib.h"
+
 using namespace std;
 
 // ctor converts a long long into a HugeInteger
@@ -101,19 +103,19 @@ HugeInteger & HugeInteger::operator-=( const HugeInteger &op )
     // if the signs of the 2 numbers are opposites, we need to do addition
     //     remember that x - y  ==  x + (-y)
     if ((this->negative && !(op.negative)) || (!(this->negative) && op.negative)){
-        return *this += -op;
+        return this->operator +=(-op);
     }
     
     // NOTE: From here on, we know the two operands are the same sign
     
-    HugeInteger bigger, smaller;  // used to make code easier to understand
+    HugeInteger bigger, smaller; // used to make code easier to understand
     
-    if (*this <= op){ // Are the values equal ?
+    if ((*this) == op){ // Are the values equal ?
         *this = 0LL;             // then just return 0
         this->negative = false;
         return *this;
         
-    } else if ( ~op < -*this ){ // is magnitude of LHS > RHS
+    } else if ( (~op) < (~(*this))){ // is magnitude of LHS > RHS
         
         bigger = *this;
         smaller = op;
@@ -122,7 +124,7 @@ HugeInteger & HugeInteger::operator-=( const HugeInteger &op )
         
         smaller = *this;
         bigger = op;
-        *this = -*this; // result needs to be negated
+        *this = -(*this); // result needs to be negated
     }
     
     // subtract smaller (in magnitude) from biggger (in magnitude)
@@ -294,4 +296,19 @@ std::ostream & operator<<(std::ostream &os, const HugeInteger &obj)
     return os;
 }
 
+HugeInteger::operator double() const
+{
+    double value = 0;
+
+    for(int i = 0, j= 1; i < this->hugeInt.size(); ++i) {
+        if(this->hugeInt[i] == 0) {
+            value += 1 * j;
+        } else {
+            value += this->hugeInt[i] * j;
+        }
+        j *= 10;
+    }
+    
+    return value;
+}
 
