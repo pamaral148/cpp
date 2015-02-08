@@ -6,7 +6,6 @@
 #include "HugeInteger.h"
 
 #include <iostream>
-#include "stdlib.h"
 
 using namespace std;
 
@@ -298,17 +297,40 @@ std::ostream & operator<<(std::ostream &os, const HugeInteger &obj)
 
 HugeInteger::operator double() const
 {
-    double value = 0;
-
-    for(int i = 0, j= 1; i < this->hugeInt.size(); ++i) {
-        if(this->hugeInt[i] == 0) {
-            value += 1 * j;
-        } else {
-            value += this->hugeInt[i] * j;
-        }
-        j *= 10;
-    }
+    double result = 1;
+    string value = "";
     
-    return value;
+    // find first non-zero digit
+    unsigned int i = 0;
+    while(i < this->hugeInt.size()){
+        if(this->hugeInt[i] != 0){
+            break;
+        }
+        ++i;
+    }
+    unsigned long power = this->hugeInt.size() - i;
+    if(i == this->hugeInt.size()) {
+        value += '0';
+    } else if(i == this->hugeInt.size() - 1) {
+        value += to_string(this->hugeInt[i]);
+        value += ".0";
+    } else {
+        unsigned int count = 0;
+        for( ; i < this->hugeInt.size(); ++i, ++count) {
+            value += to_string(this->hugeInt[i]);
+            if(count == 0) {
+                value += '.';
+            }
+        }
+        
+        for (int j = 1; j < power; ++j) {
+            result *= 10;
+        }
+    }
+    if(this->negative) {
+        return - (atof(value.c_str()) * result);
+    } else {
+        return atof(value.c_str()) * result;
+    }
 }
 
