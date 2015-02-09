@@ -1,7 +1,7 @@
 // Exercise 9.14 Solution: HugeInteger.cpp
 // HugeInteger class implementation.
 // Modified by: Paulo Amaral
-// Last modified:
+// Last modified: 2015-02-09
 
 #include "HugeInteger.h"
 

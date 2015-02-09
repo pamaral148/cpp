@@ -2,7 +2,7 @@
 // Exercise 9.14 Solution: HugeInteger.h
 // HugeInteger class declaration.
 // Modified by: Paulo Amaral
-// Last modified:
+// Last modified: 2015-02-09
 
 #ifndef __Assignment02__HugeInteger__
 #define __Assignment02__HugeInteger__
