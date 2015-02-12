@@ -9,7 +9,7 @@
 #ifndef Assignment03_Array_h
 #define Assignment03_Array_h
 
-template<class T = int, int = 5>
+template<class T = int, int size = 5>
 class Array
 {
 public:
@@ -19,6 +19,6 @@ private:
     // the current number of specialized objects
     static int arrayCount;
     // the underlying data structure
-    //T[] array;
+    T data[size];
 };
 #endif
