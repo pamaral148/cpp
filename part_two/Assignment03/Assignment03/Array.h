@@ -33,7 +33,9 @@ public:
     // tests two arrays for inequality
     bool operator!=(const Array<T, size> &op) const;
     // returns value at index
-    T operator[](int & index) const;
+    const T& operator[](const int &index) const;
+    // returns value at index
+    T& operator[](const int &index);
 private:
     // the current number of specialized objects
     static int arrayCount;
@@ -99,12 +101,43 @@ bool Array<T, size>::operator!=(const Array<T, size> &op) const
 
 // returns element at index
 template<class T, int size>
-T Array<T, size>::operator[](int & index) const
+const T & Array<T, size>::operator[](const int &index) const
 {
     if(index >= 0 && index < size) {
-        return data[index];
+        return this->data[index];
     } else {
-        std::cerr << "";
+        return this->data[0];
+    }
+}
+
+// returns element at index
+template<class T, int size>
+T& Array<T, size>::operator[](const int &index)
+{
+    if(index >= 0 && index < size) {
+        return this->data[index];
+    } else {
+        return this->data[0];
+    }
+}
+
+// inputs elements into the array
+template<class T, int size>
+void Array<T, size>::inputArray()
+{
+    for (int i = 0; i < size; ++i) {
+        T el;
+        std::cin >> el;
+        this->data[i] = el;
+    }
+}
+
+// outputs elements from the array
+template<class T, int size>
+void Array<T, size>::outputArray() const
+{
+    for (int i = 0; i < size; ++i) {
+        std::cout << this->data[i];
     }
 }
 
