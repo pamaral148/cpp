@@ -82,22 +82,22 @@ int main()
         cout << "\nstringArray != stringArray2 \n";
     }
     
-    /*
+    
      
-     This code will not compile, which is why I have commented it out.
-     Why will it not compile ?
-     
+     // This code will not compile, which is why I have commented it out.
+     // Why will it not compile ?
+     /*
      if(intArray2 != intArray3)
      {
      cout << "\nintArray2 != intArray3 \n";
      }
-     
      */
+     
     
     // For fun, let's dynamically create and destroy another intArray object
     
-    auto * ptr = new Array<>;
-    delete ptr;
+    // auto * ptr = new Array<>;
+    // delete ptr;
     
     // How many objects do we have now?
     ObjectCount = Array<int, 5>::getArrayCount();
