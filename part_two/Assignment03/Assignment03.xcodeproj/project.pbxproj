@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ECB2D23F1A91279D00AF8CF3 /* Array_inc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Array_inc.h; sourceTree = "<group>"; };
 		ECBE46E31A8C693E007FAD62 /* Assignment03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assignment03; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBE46E61A8C693E007FAD62 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		ECBE46ED1A8C69A1007FAD62 /* Array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Array.h; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 			children = (
 				ECBE46E61A8C693E007FAD62 /* main.cpp */,
 				ECBE46ED1A8C69A1007FAD62 /* Array.h */,
+				ECB2D23F1A91279D00AF8CF3 /* Array_inc.h */,
 			);
 			path = Assignment03;
 			sourceTree = "<group>";
@@ -234,6 +236,7 @@
 				ECBE46EC1A8C693E007FAD62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
