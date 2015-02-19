@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EC1BD3671A95900D003A9677 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC1BD3661A95900D003A9677 /* main.cpp */; };
+		EC8429BB1A959653005FCD44 /* PhoneNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8429BA1A959653005FCD44 /* PhoneNumber.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		EC1BD3631A95900D003A9677 /* Assignment04 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assignment04; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC1BD3661A95900D003A9677 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		EC8429B91A9595DD005FCD44 /* PhoneNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhoneNumber.h; sourceTree = "<group>"; };
+		EC8429BA1A959653005FCD44 /* PhoneNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhoneNumber.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				EC1BD3661A95900D003A9677 /* main.cpp */,
+				EC8429B91A9595DD005FCD44 /* PhoneNumber.h */,
+				EC8429BA1A959653005FCD44 /* PhoneNumber.cpp */,
 			);
 			path = Assignment04;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC1BD3671A95900D003A9677 /* main.cpp in Sources */,
+				EC8429BB1A959653005FCD44 /* PhoneNumber.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +238,7 @@
 				EC1BD36C1A95900D003A9677 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
