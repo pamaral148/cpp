@@ -13,11 +13,11 @@
 class PhoneNumber
 {
     // overloaded input and output operators
-    friend std::ostream& operator<<( std::ostream&, const PhoneNumber& );
-    friend std::istream& operator>>( std::istream&, PhoneNumber& );
+    friend std::ostream& operator<<( std::ostream&, const PhoneNumber& ) noexcept;
+    friend std::istream& operator>>( std::istream&, PhoneNumber& ) noexcept;
     
 public:
-    PhoneNumber(); // default constructor
+    PhoneNumber() noexcept; // default constructor
 private:
     char phone[ 15 ]; // holds phone number
     char areaCode[ 4 ]; // holds area code
