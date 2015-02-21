@@ -75,7 +75,7 @@ void PhoneNumber::setLine() noexcept
     for (short i = lineStart; i < max; ++i, ++j) {
         line[j] = phone[i];
     }
-    line[++j] = nullChar;
+    line[j] = nullChar;
 }
 
 // overloaded insertion operator
