@@ -17,7 +17,7 @@ class PhoneNumber
     friend std::istream& operator>>( std::istream&, PhoneNumber& ) noexcept;
     
 public:
-    PhoneNumber() noexcept; // default constructor
+    PhoneNumber() noexcept {}; // inline default constructor
 private:
     // char constants for validation and output
     const static char openBracket = '(',

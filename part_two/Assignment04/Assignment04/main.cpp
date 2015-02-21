@@ -11,13 +11,13 @@
 
 int main(int argc, const char * argv[])
 {
-    
     while (true) {
         PhoneNumber num;
-        std::cout << "Enter a phone number: ";
+        std::cout << "Enter a phone number in the form (123) 456-7890:\n";
         std::cin >> num;
         std::cout << num;
         std::cin.clear();
         std::cin.ignore(INT_MAX, '\n');
+        std::cout << std::endl;
     }
 }
