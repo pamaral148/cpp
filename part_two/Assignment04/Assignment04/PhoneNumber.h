@@ -36,6 +36,8 @@ private:
                        areaCodeMiddle = 2,
                        lineStart = 10,
                        areaCodeStart = 1;
+    const static std::string errorMsg;
+    const static std::string introMsg;
     bool validateAreaCode() const noexcept; // validates area code input
     bool validateExchange() const noexcept; // validates exchange input
     void setAreaCode() noexcept; // sets the area code

@@ -8,6 +8,9 @@
 
 #include "PhoneNumber.h"
 
+const std::string PhoneNumber::errorMsg = "Invalid phone number entered...\n";
+const std::string PhoneNumber::introMsg = "The phone number entered was... ";
+
 // default ctor
 PhoneNumber::PhoneNumber() noexcept
 { /* empty ctor */ }
@@ -83,10 +86,11 @@ void PhoneNumber::setLine() noexcept
 // inserts phone number to ostream in formatted output
 std::ostream& operator<<( std::ostream& os, const PhoneNumber& phoneNumber ) noexcept
 {
-    std::cout << phoneNumber.openBracket << phoneNumber.areaCode
+    std::cout << PhoneNumber::introMsg
+              << phoneNumber.openBracket << phoneNumber.areaCode
               << phoneNumber.closeBracket << phoneNumber.space
               << phoneNumber.exchange << phoneNumber.dash
-              << phoneNumber.line;
+    << phoneNumber.line << std::endl;
     return os;
 }
 
@@ -107,7 +111,7 @@ std::istream& operator>>( std::istream& is, PhoneNumber& phoneNumber ) noexcept
         is.clear(std::ios_base::failbit);
     }
     if(is.fail()) {
-        std::cerr << "Invalid phone number entered...\n";
+        std::cerr << PhoneNumber::errorMsg;
         exit(errno);
     } else {
         phoneNumber.setAreaCode();
