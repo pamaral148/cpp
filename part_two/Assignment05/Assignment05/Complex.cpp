@@ -5,6 +5,9 @@
 
 #include "Complex.h"
 #include <iomanip>
+#include <iostream>
+#include <regex>
+
 using namespace std;
 
 //ctor
@@ -97,7 +100,20 @@ bool operator != (const Complex & LHS, const Complex & RHS)
 //   ( -125.00, 23.44 )
 ostream & operator << (ostream & dest, const Complex & obj)
 {
-    dest << "( " << obj.real_part << ", " << obj.imaginary_part << " )";
+    if((dest.flags() & std::ios::oct) != 0) {
+        // mode 1
+        dest << "( ";
+        (obj.real_part > 0 ? dest << "+" << obj.real_part : dest << obj.real_part);
+        dest << ",";
+        (obj.imaginary_part > 0 ? dest << "+" << obj.imaginary_part : dest << obj.imaginary_part);
+        dest << " )";
+    } else {
+        // mode 2
+        (obj.real_part > 0 ? dest << "+" << obj.real_part : dest << obj.real_part);
+        dest << " ";
+        (obj.imaginary_part > 0 ? dest << "+" << obj.imaginary_part : dest << obj.imaginary_part);
+        dest << "i";
+    }
     return dest; // enables  cout << a << b << c
 }
 
@@ -106,12 +122,36 @@ ostream & operator << (ostream & dest, const Complex & obj)
 //   ( -125.00, 23.44 )
 istream & operator >> (istream & input, Complex & obj)
 {
-    input.ignore(2,'('); // skip over '('
-    input >> obj.real_part; // read the real component of the Complex #
-    input.ignore(2,','); // skip over ','
-    input >> obj.imaginary_part; // read the real component of the Complex #
-    input.ignore(2,')'); // skip over ')'
-    
+    if((input.flags() & std::ios::oct) != 0) {
+        input.ignore(2,'('); // skip over '('
+        input >> obj.real_part; // read the real component of the Complex #
+        input.ignore(2,','); // skip over ','
+        input >> obj.imaginary_part; // read the real component of the Complex #
+        input.ignore(2,')'); // skip over ')'
+        if(input.peek() == '\n') {
+            input.ignore(256,'\n');
+        }
+    } else {
+        std::string tokenA, tokenB;
+        input >> tokenA;
+        // is this an imaginary number in mode 2 (nnnn.nni)?
+        if(std::regex_match(tokenA, std::regex("^-?\\d+\\.?\\d*i$"))) {
+            tokenA.pop_back();
+            obj.real_part = 0;
+            obj.imaginary_part = stod(tokenA);
+        // check that user input meets rqeuirements for mode 2 "nnnn.nn nnnn.nni"
+        } else if(std::regex_match(tokenA, std::regex("^-?\\d+\\.?\\d*$"))) {
+            input >> tokenB;
+            if(std::regex_match(tokenB, std::regex("^-?\\d+\\.?\\d*i$"))) {
+                obj.real_part = stod(tokenA);
+                tokenB.pop_back();
+                obj.imaginary_part = stod(tokenB);
+            }
+        // bad input so set error bit
+        } else {
+            input.setstate(ios::failbit);
+        }
+    }
     return input; // enables  cin >> a >> b >> c
 }
 

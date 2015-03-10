@@ -133,7 +133,7 @@ int main()
     else // if a Complex number is invalid, tell user and terminate application
     {
         cerr << "\nInvalid Complex number was entered.\n\n";
-        system("pause");  // pause before leaving forever
+        //system("pause");  // pause before leaving forever
         exit( 1 );
     } 
     
