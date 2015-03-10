@@ -4,6 +4,9 @@
 // Author: Bob Langelaan
 // Date: Feb 19, 2014
 
+// Submitted by: Paulo Amaral
+// Date Submitted: March 09 2015
+
 #ifndef Complex_incl
 #define Complex_incl
 
