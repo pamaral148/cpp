@@ -3,10 +3,14 @@
 // Author: Bob Langelaan
 // Date: Feb 19, 2014
 
+// Modified By: Paulo Amaral
+// Modified Date: March 09, 2015
+
 #include "Complex.h"
 #include <iomanip>
 #include <iostream>
 #include <regex>
+#include <cmath>
 
 using namespace std;
 
@@ -100,19 +104,22 @@ bool operator != (const Complex & LHS, const Complex & RHS)
 //   ( -125.00, 23.44 )
 ostream & operator << (ostream & dest, const Complex & obj)
 {
+    
+    dest << fixed;
     if((dest.flags() & std::ios::oct) != 0) {
         // mode 1
-        dest << "( ";
-        (obj.real_part > 0 ? dest << "+" << obj.real_part : dest << obj.real_part);
+        dest << setprecision(2);
+        dest << "(";
+        obj.real_part > 0 ? dest << "+" : dest << "-";
+        dest << setw(7) << abs(obj.real_part);
         dest << ",";
-        (obj.imaginary_part > 0 ? dest << "+" << obj.imaginary_part : dest << obj.imaginary_part);
-        dest << " )";
+        obj.imaginary_part > 0 ? dest << "+" : dest << "-";
+        dest << setw(7) << abs(obj.imaginary_part);
+        dest << ")";
     } else {
         // mode 2
-        (obj.real_part > 0 ? dest << "+" << obj.real_part : dest << obj.real_part);
-        dest << " ";
-        (obj.imaginary_part > 0 ? dest << "+" << obj.imaginary_part : dest << obj.imaginary_part);
-        dest << "i";
+        dest << setprecision(4);
+        dest << obj.real_part << " " << obj.imaginary_part << "i";
     }
     return dest; // enables  cout << a << b << c
 }
@@ -125,8 +132,14 @@ istream & operator >> (istream & input, Complex & obj)
     if((input.flags() & std::ios::oct) != 0) {
         input.ignore(2,'('); // skip over '('
         input >> obj.real_part; // read the real component of the Complex #
+        if(input.peek() != ',') {
+            input.setstate(ios::failbit);
+        }
         input.ignore(2,','); // skip over ','
         input >> obj.imaginary_part; // read the real component of the Complex #
+        if(input.peek() != ')') {
+            input.setstate(ios::failbit);
+        }
         input.ignore(2,')'); // skip over ')'
         if(input.peek() == '\n') {
             input.ignore(256,'\n');
@@ -146,6 +159,8 @@ istream & operator >> (istream & input, Complex & obj)
                 obj.real_part = stod(tokenA);
                 tokenB.pop_back();
                 obj.imaginary_part = stod(tokenB);
+            } else {
+                input.setstate(ios::failbit);
             }
         // bad input so set error bit
         } else {
