@@ -128,7 +128,7 @@ istream & operator >> (istream & input, Complex & obj)
     // First check if the failbit is already set
     if( input.fail() )
     {
-        return input;  //if so, go home
+        throw Invalid_Mode1_Complex_Value();  //if so, go home
     }
     
     ios_base::fmtflags origFormat;  // Create format flag

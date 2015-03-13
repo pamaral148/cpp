@@ -18,7 +18,7 @@ public:
     Invalid_Mode2_Complex_Value()
     : std::invalid_argument(MSG) {};
 private:
-    const static std::string MSG;
+    const static char* MSG;
 };
 
 #endif /* defined(__Assignment06__Invalid_Mode2_Complex_Value__) */

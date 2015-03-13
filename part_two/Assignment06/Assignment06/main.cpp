@@ -66,9 +66,10 @@ int main()
         cout << "\nThe cin format flags are set to: " << newFormat << endl;
         
         cout << "\nEnter 2 Complex numbers in the form \"nnnn.nn nnnn.nni\" :\n";
+        
         try {
             cin >> A >> B;
-        
+            
             newFormat = cin.flags();  //find out how flags are set now
             cout << "\nThe cin format flags are set to: " << newFormat << endl;
             
@@ -99,11 +100,14 @@ int main()
             newFormat = cout.flags();  //find out how flags are set now
             cout << "\nThe cout format flags are set to: " << newFormat << endl;
         } catch(Invalid_Mode2_Complex_Value excep) {
-            cerr << excep.std::exception::what();
+            cerr << excep.what();
         }
+
+        
     } catch(Invalid_Mode1_Complex_Value excep) {
-        cerr << excep.std::exception::what();
+        cerr << excep.what();
     }
+    
     
     newFormat = cin.flags();  //find out how flags are set now
     cout << "\nThe cin format flags are set to: " << newFormat << endl;

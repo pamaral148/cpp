@@ -8,4 +8,4 @@
 
 #include "Invalid_Mode1_Complex_Value.h"
 
-const std::string Invalid_Mode1_Complex_Value::MSG = "Exception occurred: Invalid value for inputting Complex # using Mode 1";
+const char* Invalid_Mode1_Complex_Value::MSG = "Exception occurred: Invalid value for inputting Complex # using Mode 1";
