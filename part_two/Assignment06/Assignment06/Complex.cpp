@@ -3,6 +3,9 @@
 // Author: Bob Langelaan
 // Date: Feb. 19, 2014
 
+// Modified by: Paulo Amaral
+// Modified Date: 2015-03-15
+
 #include "Complex.h"
 #include <iomanip>
 #include <regex>

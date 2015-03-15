@@ -3,7 +3,10 @@
 //  Assignment06
 //
 //  Created by Paulo Amaral on 2015-03-12.
-//  Copyright (c) 2015 pamaral. All rights reserved.
+//  Custom exception class implementation for comp2618
+//  assignment 06
+//
+//  Used for handling invalid mode 2 input
 //
 
 #include "Invalid_Mode2_Complex_Value.h"

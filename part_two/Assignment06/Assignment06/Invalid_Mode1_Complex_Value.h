@@ -3,7 +3,10 @@
 //  Assignment06
 //
 //  Created by Paulo Amaral on 2015-03-12.
-//  Copyright (c) 2015 pamaral. All rights reserved.
+//  Custom exception class interface for comp2618
+//  assignment 06
+//
+//  Used for handling invalid mode 1 input
 //
 
 #ifndef __Assignment06__Invalid_Mode1_Complex_Value__
