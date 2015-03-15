@@ -101,13 +101,16 @@ int main()
             cout << "\nThe cout format flags are set to: " << newFormat << endl;
         } catch(Invalid_Mode2_Complex_Value excep) {
             cerr << excep.what();
+        } catch(invalid_argument excep) {
+            cerr << excep.what();
         }
 
         
     } catch(Invalid_Mode1_Complex_Value excep) {
         cerr << excep.what();
+    } catch(invalid_argument excep) {
+        cerr << excep.what();
     }
-    
     
     newFormat = cin.flags();  //find out how flags are set now
     cout << "\nThe cin format flags are set to: " << newFormat << endl;

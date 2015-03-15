@@ -5,6 +5,7 @@
 
 #include "Complex.h"
 #include <iomanip>
+#include <regex>
 
 using namespace std;
 
@@ -170,33 +171,43 @@ istream & operator >> (istream & input, Complex & obj)
         }
         
     }
+
     else //mode 2
     {
         // for now, assume first # is real the part
-        
+        std::string tokenA, tokenB;
         // read the real component of the Complex #
-        input >> obj.real_part;
-        
+        input >> tokenA;
+        //input.fail() ? cout << "In stream fails\n" : cout << "In stream OK\n";
         // check if next char is a blank or a 'i'
-        if (input.peek() == 'i')
+        if (std::regex_match(tokenA, std::regex("^-?\\d+\\.?\\d*i$")))
         {
-            input.get(); // swallow 'i'
+            //input.get(); // swallow 'i'
             
             // now we know we actually read imaginary part earlier on
-            obj.imaginary_part = obj.real_part; 
+            obj.imaginary_part = stod(tokenA);
             obj.real_part = 0.0;
         }
         
         // user has supplied both real and imaginary inputs
         else
         {
-            // read the imaginary component of the Complex #
-            input >> obj.imaginary_part; 
-            
-            // Process 'i'
-            if (input.peek() == 'i')
+            if(std::regex_match(tokenA, std::regex("^-?\\d+\\.?\\d*$")))
             {
-                input.get(); // swallow 'i'
+                obj.real_part = stod(tokenA);
+            }
+            
+            else
+            {
+                throw Invalid_Mode2_Complex_Value();
+            }
+            // read the imaginary component of the Complex #
+            input >> tokenB;
+
+            // Process 'i'
+            if (std::regex_match(tokenB, std::regex("^-?\\d+\\.?\\d*i$")))
+            {
+                obj.imaginary_part = stod(tokenB);
             }
             
             else  // we have a problem!
