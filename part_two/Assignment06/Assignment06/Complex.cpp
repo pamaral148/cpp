@@ -174,7 +174,7 @@ istream & operator >> (istream & input, Complex & obj)
         }
         
     }
-
+    
     else //mode 2
     {
         // for now, assume first # is real the part
@@ -218,8 +218,8 @@ istream & operator >> (istream & input, Complex & obj)
                 throw Invalid_Mode2_Complex_Value();
             }
         }
+     
     }
-    
     // restore format flags
     input.flags(origFormat);
     
