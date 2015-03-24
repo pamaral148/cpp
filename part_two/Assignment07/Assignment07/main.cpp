@@ -2,6 +2,9 @@
 // November 28, 2014
 // Author: Bob Langelaan
 
+// Modified By: Paulo Amaral
+// Modified date: 2015-03-23
+
 // Note: This site will be usefull for this assignment:
 // http://www.cplusplus.com/reference/
 // Note that algorithms are under the "Other" category
@@ -49,7 +52,7 @@ int main()
         
         vector<size_t> v1(forty_million);
         
-        for (int i = 0; i < forty_million; ++i){
+        for (size_t i = 0; i < forty_million; ++i){
             v1[i] = randomInt(engine);// random number 1 to 4 billion
         }
         
@@ -71,7 +74,7 @@ int main()
     {
         
         vector<size_t> v2(forty_million);
-        for (int i = 0; i < forty_million; ++i){
+        for (size_t i = 0; i < forty_million; ++i){
             v2[i] = randomInt(engine);// random number 1 to 4 billion
         }
         
@@ -92,7 +95,7 @@ int main()
     {
         
         vector<size_t> v3;
-        for (int i = 0; i < forty_million; ++i){
+        for (size_t i = 0; i < forty_million; ++i){
             v3.push_back(randomInt(engine)); // random number 1 to 4 billion
         }
         
@@ -117,7 +120,7 @@ int main()
     {
         
         vector<size_t> v4;
-        for (int i = 0; i < forty_million; ++i){
+        for (size_t i = 0; i < forty_million; ++i){
             v4.push_back(randomInt(engine)); // random number 1 to 4 billion
             push_heap(v4.begin(), v4.end());
         }
@@ -141,7 +144,7 @@ int main()
     {
         
         vector<size_t> v4;
-        for (int i = 0; i < forty_million; ++i){
+        for (size_t i = 0; i < forty_million; ++i){
             v4.push_back(randomInt(engine)); // random number 1 to 4 billion
         }
         make_heap(v4.begin(), v4.end());
@@ -168,11 +171,10 @@ int main()
         
         list<size_t> main_list;
         list<size_t> li;
-        for(int i = 0; i < forty_thousand; ++i) {
+        for(size_t i = 0; i < forty_thousand; ++i) {
             li.push_back(randomInt(engine));
             main_list.merge(li);
         }
-        
     }
     
     end_time = time(NULL); // record end time
@@ -187,12 +189,22 @@ int main()
     //          function merge and not the merge() algorithm. Hint: Use nested for loops.
     
     // NOTE: The 2 lists are created/initialized empty (size == 0)
-    
+   
     start_time = time(NULL); // record start time
     
     {
         
-        // You supply missing contents here :)
+        list<size_t> main_list;
+        list<size_t> li;
+        
+        for(size_t i = 0; i < one_thousand; ++i) {
+            for (int j = 0; j < four_hundred; ++j) {
+                li.push_back(randomInt(engine));
+            }
+            li.sort();
+            main_list.merge(li);
+            li.clear();
+        }
         
     }
     
@@ -209,8 +221,11 @@ int main()
     
     {
         
-        // You supply missing contents here :)
-        
+        deque<size_t> my_deque(forty_million);
+        for(size_t i = 0; i < forty_million; ++i) {
+            my_deque[i] = randomInt(engine);
+        }
+        sort(my_deque.begin(), my_deque.end());
     }
     
     end_time = time(NULL); // record end time
@@ -228,7 +243,11 @@ int main()
     
     {
         
-        // You supply missing contents here :)
+        deque<size_t> my_deque;
+        for(size_t i = 0; i < four_hundred_thousand; ++i) {
+            my_deque.push_back(randomInt(engine));
+        }
+        sort(my_deque.begin(), my_deque.end());
         
     }
     
@@ -246,8 +265,12 @@ int main()
     
     {
         
-        // You supply missing contents here :)
-        
+        size_t * my_array = new size_t[forty_million];
+        for(size_t i = 0; i < forty_million; ++i) {
+            my_array[i] = randomInt(engine);
+        }
+        sort(&my_array[0], &my_array[forty_million - 1]);
+        delete[] my_array;
     }
     
     end_time = time(NULL); // record end time
@@ -263,7 +286,10 @@ int main()
     
     {
         
-        // You supply missing contents here :)
+        multiset<size_t> multi_set;
+        for(size_t i = 0; i < four_million; ++i) {
+            multi_set.insert(randomInt(engine));
+        }
         
     }
     
@@ -281,8 +307,12 @@ int main()
     
     {
         
-        // You supply missing contents here :)
-        
+        list<size_t> the_list;
+        for (size_t i = 0; i < four_million; ++i) {
+            the_list.push_back(randomInt(engine));
+        }
+        the_list.sort();
+        the_list.unique();
     }
     
     end_time = time(NULL); // record end time
@@ -298,7 +328,10 @@ int main()
     
     {
         
-        // You supply missing contents here :)
+        set<size_t> the_set;
+        for (size_t i = 0; i < four_million; ++i) {
+            the_set.insert(randomInt(engine));
+        }
         
     }
     
