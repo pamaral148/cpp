@@ -11,16 +11,28 @@
 
 int main() {
     
-    Hangman game = Hangman();
-    
-    while (!game.is_winner()) {
-        char guess;
-        game.display_word();
-        std::cin >> guess;
-        game.guess(guess);
+    bool play_again = true;
+    const std::string yes = "y";
+    const std::string no = "n";
+
+    while (play_again) {
+        Hangman game = Hangman();
+        std::string answer;
+        while (!game.is_winner() && !game.is_loser()) {
+            char guess;
+            game.display_word();
+            std::cin >> guess;
+            game.guess(guess);
+        }
+        do {
+            std::cin >> answer;
+        } while(!std::cin.fail() && answer != yes && answer != no);
+            
+        if(answer == yes) {
+            play_again = true;
+        } else if(answer == no) {
+            play_again = false;
+        }
     }
     
-    if(game.is_winner()) {
-        
-    }
 }
