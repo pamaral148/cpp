@@ -3,7 +3,8 @@
 //  Assignment08
 //
 //  Created by Paulo Amaral on 2015-03-28.
-//  Copyright (c) 2015 pamaral. All rights reserved.
+//  Interface of Hangman game class
+//  implementation in Hangman.h
 //
 
 #ifndef __Assignment08__Hangman__

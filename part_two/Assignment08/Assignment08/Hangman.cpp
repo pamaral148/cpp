@@ -3,13 +3,15 @@
 //  Assignment08
 //
 //  Created by Paulo Amaral on 2015-03-28.
-//  Copyright (c) 2015 pamaral. All rights reserved.
+//  Implementation of Hangman game class
+//  interface in Hangman.h
 //
 
 #include "Hangman.h"
 #include <iostream>
 #include <algorithm>
 
+// default ctor that sets game object to valid state
 Hangman::Hangman() noexcept
 : guess_count(0), wrong_guesses(0),
   has_won(false), has_lost(false)
@@ -24,30 +26,41 @@ Hangman::Hangman() noexcept
     std::cout << std::endl;
 }
 
+// the container that holds all possible strings for the game
 const std::array<std::string, Hangman::string_count> Hangman::strings =
 {
     "guess", "testing", "night", "floor", "house",
     "hangman", "school", "bottle", "clown", "library"
 };
 
+// the prompt before displaying the word
 const std::string Hangman::prompt = "\nGuess the word: ";
 
+// the prompt before displaying the word
 const std::string Hangman::prompt_2 = "\nGuess a letter: ";
 
+// the prompt before displaying the guesses
 const std::string Hangman::your_guesses = "\nYour guesses:\n";
 
-const std::string Hangman::you_lose = "\nSorry - you have run out of guesses :-(\nThe correct answer was: ";
+// the message when player loses
+const std::string Hangman::you_lose =
+"\nSorry - you have run out of guesses :-(\nThe correct answer was: ";
 
+// the array of hangman chars
 const std::array<std::string, Hangman::max_guesses> Hangman::hangman =
 {
     "\n 0 \n", "/", "|", "\\\n", " | \n", "/ ", "\\\n"
 };
 
+// displays the mystery word on the console
 void Hangman::display_word() const noexcept
 {
     std::cout << prompt_2;
     for(auto ch : this->mystery_string) {
-        if(std::find(this->guesses.cbegin(), this->guesses.cend(), ch) != this->guesses.cend()) {
+        if(std::find(this->guesses.cbegin(),
+           this->guesses.cend(), ch)
+           != this->guesses.cend())
+        {
             std::cout << ch;
         } else {
             std::cout << placeholder_2;
@@ -57,6 +70,7 @@ void Hangman::display_word() const noexcept
     std::cout << placeholder_2;
 }
 
+// prompts player for a guess and evaluates the guess
 bool Hangman::guess(const char letter) noexcept
 {
     bool check = false;
@@ -77,7 +91,8 @@ bool Hangman::guess(const char letter) noexcept
     }
     return check;
 }
-
+    
+// returns true if the player has already guessed this char
 bool Hangman::has_guessed(const char letter) const noexcept
 {
     bool guessed = false;
@@ -89,6 +104,7 @@ bool Hangman::has_guessed(const char letter) const noexcept
     return guessed;
 }
 
+// updates has_won if player has won
 bool Hangman::is_winner() noexcept
 {
     this->drawHangman();
@@ -113,7 +129,8 @@ bool Hangman::is_winner() noexcept
     }
     return this->has_won;
 }
-    
+
+// draws the hangman figure
 void Hangman::drawHangman() const noexcept
 {
     for(short i = 0; i < wrong_guesses; ++i) {
@@ -121,6 +138,7 @@ void Hangman::drawHangman() const noexcept
     }
 }
     
+// displays guesses in console
 void Hangman::display_guesses() const noexcept
 {
     std::cout << your_guesses;

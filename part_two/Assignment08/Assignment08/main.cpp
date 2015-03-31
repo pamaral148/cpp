@@ -3,7 +3,8 @@
 //  Assignment08
 //
 //  Created by Paulo Amaral on 2015-03-28.
-//  Hangman game created for comp 2618 assignment 08
+//  Hangman game driver created for
+//  comp 2618 assignment 08
 //
 
 #include <iostream>
